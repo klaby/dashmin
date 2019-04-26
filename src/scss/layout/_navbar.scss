@@ -1,0 +1,179 @@
+/* -----------------------------------*/
+/* ----------->>> NAVBAR <<<----------*/
+/* -----------------------------------*/
+
+/* LAYOUT > NAVBAR
+//////////////////////////////////////*/
+
+/**
+* @author: H i u k k y
+*
+* @section: layout/navbar
+*/
+
+.navbar {
+    height: 50px;
+    @include calc(width, '100% - 200px');
+    @extend %right-top-fixed;
+    @extend %flex-row;
+    justify-content: space-between;
+    @extend %no-select;
+    z-index: 100;
+}
+
+// Min
+.navbar-min{
+    @extend .navbar;
+    @include calc(width, '100% - 50px');
+}
+
+// Left
+.navbar-buttons{
+    @extend %flex-row;
+
+    @if &{
+        .nav-button{
+            @extend %align-center;
+            @include initProperties(relative, 50px, 50px);
+            transition: .3s;
+
+            &:hover{
+                @extend .hover;                   
+            }
+        }               
+    }
+}
+
+// Right
+#drop-toggle{
+    position: absolute;
+    right: 10px;
+    top: 17px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.dropdown-user{
+    @include initProperties(relative, 300px, 190px);
+
+    @if &{
+        .profile-details{
+            @include initProperties(relative, 120px, 100%);
+            @extend  %align-center;
+            @extend %flex-collumn;
+
+            @if &{
+                .image-status{
+                    @include initProperties(relative, 50px, 50px);
+
+                    @if &{
+                        .img-profile {
+                            @include initProperties('', 50px, 50px);
+                            border-radius: 50px;
+                            transition: .2s;
+                        }
+                    }
+                }
+                .user-name {
+                    @include font($roboto, rgba(56, 56, 56, 0.7), .9rem);
+                    margin-top: 7px;
+                    font-weight: 600;
+                }
+                .user-function {
+                    @include font($roboto, rgba(56, 56, 56, 0.7), .72rem);
+                    margin-top: 3px;
+                    font-weight: 500;
+                }
+            }
+        }
+    }
+
+    @if &{
+        .drop-buttons{
+            @include initProperties(relative, 180px, 100%);  
+            @extend  %align-center;
+            @extend %flex-collumn;
+
+            @if &{
+                .drop-button{
+                    @include initProperties('', 40px, 100%);
+                    display: flex;
+                    align-items: center;
+                    transition: .3s;
+
+                    &:hover{
+                        @extend .hover;
+                    }
+
+                    @if &{
+                        .fas{
+                            width: 20px;
+                            height: 20px;
+                            padding: 0px 15px 0px 25px;
+                            font-size: 1rem;
+                            @extend  %align-center;
+                        }
+                    }
+
+                    @if &{
+                        .button-name{
+                            @include font($quicksand, $dark, .85rem); 
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Min
+.dropdown-user-min{
+    @include initProperties(relative, 50px, 70px);
+    overflow: hidden;
+
+    @if &{
+        .profile-details{
+            @include initProperties(relative, 50px, 50px);
+            @extend  %align-center;
+
+            @if &{
+                .image-status{
+                    @include initProperties(relative, 35px, 35px);
+        
+                    @if &{
+                        .img-profile{
+                            @include initProperties('', 35px, 35px);
+                            border-radius: 50px;
+                        }
+
+                        .is-online{
+                            visibility: collapse;
+                        }
+                    }
+                }
+                
+                .user-name, .user-function{
+                    font-size: 0;
+                }
+            }
+        }
+
+        .drop-buttons, .hr-dark{
+            display: none;
+        }
+    }
+}
+
+// Other
+.hover{
+    cursor: pointer;
+    background: rgba(56, 56, 56, 0.1);
+    transition: .3s;
+}
+
+// Brackpoints
+@media only screen and (max-width: 767px) { 
+    .navbar{
+        width: 100%;
+    }
+}

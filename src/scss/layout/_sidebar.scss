@@ -1,0 +1,231 @@
+/* -----------------------------------*/
+/* ----------->>> SIDEBAR <<<---------*/
+/* -----------------------------------*/
+
+/* LAYOUT > SIDEBAR
+//////////////////////////////////////*/
+
+/**
+* @author: H i u k k y
+*
+* @section: layout/sidebar
+*/
+
+.sidebar {
+    height: 100vh;
+    width: 200px;
+    @extend %left-top-fixed;
+    @extend %flex-collumn;
+    @extend %no-select;
+}
+
+.sidebar-brand{
+    @include initProperties(relative, 50px, 100%);
+    @extend %align-center;
+
+    @if &{
+        .link-brand{
+            @include font($quicksand, $white, 1.1rem);
+            
+            @if &{
+                strong{
+                    font-weight: 600;
+                }
+            }
+        }
+
+        .lg{
+            display: block;
+        }
+        .xs{
+            display: none;
+        }
+    }
+}
+
+.sidebar-profile{
+    @include initProperties(relative, 70px, 100%);
+    @extend  %align-center;
+    @extend %flex-row;
+
+    @if &{
+        .image-status{
+            @include initProperties(relative, 40px, 40px);
+
+            @if &{
+                .img-profile {
+                    @include initProperties('', 40px, 40px);
+                    border-radius: 50px;
+                }
+            }
+        }
+        .user-name {
+            @include font($roboto, $white, 0.8rem);
+            margin-left: 10px;
+        }
+    }
+}
+
+.menu-name{
+    @include font($quicksand, $white, .7rem); 
+    font-weight: 500;
+    line-height: 30px;
+    padding: 0 0 0 10px;
+}
+
+.sidebar-buttons {
+    @include initProperties(relative,'', 100%);
+    @include calc(height, '100vh - 180px');
+    overflow: auto;
+
+    &::-webkit-scrollbar{
+        width: 0;
+    }
+
+    @if &{
+        .side-button{
+            @include initProperties('', 45px, 198px);
+            display: flex;
+            align-items: center;
+            border: 2px solid transparent;
+            border-right: 0;
+            border-top: 0;
+            border-bottom: 0;
+            transition: .2s;
+        
+            &:hover{
+                cursor: pointer;
+                background: rgba(241, 242, 246, 0.1);
+                border: 2px solid #f1f2f6;  
+                border-right: 0;
+                border-top: 0;
+                border-bottom: 0;
+                padding-left: 5px;
+                transition: .3s;
+            }
+
+            @if &{
+                .fas{
+                    color: #f1f2f6!important;
+                    padding: 0px 15px 0px 25px;
+                    font-size: 1rem;
+                    width: 20px;
+                    height: 20px;
+                    @extend  %align-center;
+                }
+            }
+
+            @if &{
+                .button-name{
+                    @include font($quicksand, $white, .8rem); 
+                }
+            }
+        }
+    }
+}
+
+.sidebar-footer{
+    @include initProperties(relative, 30px, 100%);
+    @extend %align-center;
+    bottom: 0;
+
+    @if &{
+        .footer-org{
+            @include font($quicksand, $white, .8rem);
+
+            @if &{
+                strong{
+                    font-weight: 600;
+                }
+            }
+        }
+        .lg{
+            display: block;
+        }
+        .xs{
+            display: none;
+        }
+    }
+}
+
+// Min
+.sidebar-min {
+    @extend .sidebar;
+    width: 50px!important;
+
+    @if &{
+        
+        .lg{
+            display: none;
+        }
+        .xs{
+            display: block;
+        }
+
+        .sidebar-profile {
+            height: 70px;
+            @extend  %align-center;
+            @extend %flex-collumn;
+
+            .image-status{
+                @include initProperties(absolute, 40px, 40px);
+    
+                @if &{
+                    .img-profile {
+                        @include initProperties('', 40px, 40px);
+                        border-radius: 50px;
+                        transition: .2s;
+                    }
+                    .is-online {
+                        width: 10px;
+                        height: 10px;
+                    }
+                }
+            }
+            @if &{
+                .user-name, .user-function{
+                    font-size: 0;
+                }
+            }
+        }
+
+        .sidebar-buttons{
+            @include calc(height, '100vh - 180px');
+
+            @if &{
+                .side-button{
+                    @include initProperties('', 45px, 48px!important);
+                    @extend  %align-center;
+                    transition: .2s;
+
+                    &:hover{
+                        padding-left: 2px;  
+                    }
+                }
+                .button-name{
+                    display: none;  
+                }
+                .fas{
+                    padding: 0;
+                }
+            }
+        }
+    }
+}
+
+// Brackpoints
+@media only screen and (max-width: 767px) { 
+    .navbar{
+        width: 100%;
+    }
+    .sidebar{
+        top: 50px;
+        display: none;
+        
+        @if &{
+            .sidebar-buttons{
+                @include calc(height, '100vh - 230px');
+            }
+        }
+    }
+}

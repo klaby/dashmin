@@ -1,0 +1,35 @@
+/* -----------------------------------*/
+/* ------------->>> UTILS <<<---------*/
+/* -----------------------------------*/
+
+/* UTILS > UTILS
+//////////////////////////////////////*/
+
+/**
+* @author: H i u k k y
+*
+* @section: utils/utils
+*/
+
+// Align 
+%right-bottom{position: absolute; right: 0; bottom: 0;};
+%right-top{position: absolute; right: 0; top: 0;};
+%right-top-fixed{position: fixed; right: 0; top: 0;};
+
+%left-top-fixed{position: fixed; left: 0; top: 0;};
+
+%bottom{position: relative; right: 0; left: 0; bottom: 0;};
+
+// Flex
+%flex-collumn{display: flex; flex-direction: column;};
+%flex-row{display: flex; flex-direction: row;};
+
+%align-center {display: flex; justify-content: center; align-items: center;};
+
+// Text
+%no-select{
+    -webkit-user-select: none;  
+    -moz-user-select: none;    
+    -ms-user-select: none;      
+    user-select: none;
+}

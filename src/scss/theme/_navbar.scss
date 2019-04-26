@@ -1,0 +1,41 @@
+/* -----------------------------------*/
+/* ------------>>> NAVBAR <<<---------*/
+/* -----------------------------------*/
+
+/* THEME > NAVBAR
+//////////////////////////////////////*/
+
+/**
+* @author: H i u k k y
+*
+* @section: theme/navbar
+*/
+
+// Default
+.fas {
+    color: rgba(56, 56, 56, 0.7) !important;
+}
+
+.dropdown-user{
+    background: $light;
+    box-shadow: -4px 5px 10px rgba(56, 56, 56, 0.2);
+
+    @if &{
+        .fa-sign-out-alt {
+            color: #e17055 !important;
+        }
+    }
+}
+
+// Skins
+.navbar-light {
+    background: $light;
+    box-shadow: -4px 5px 10px rgba(56, 56, 56, 0.2);
+}
+
+// Utils
+.hr-dark {
+    margin: 0;
+    border: solid 0.5px $dark;
+    opacity: 0.1;
+}

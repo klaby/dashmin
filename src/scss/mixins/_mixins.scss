@@ -1,0 +1,33 @@
+/* -----------------------------------*/
+/* ------------>>> MIXINS <<<---------*/
+/* -----------------------------------*/
+
+/* MIXINS > MIXINS
+//////////////////////////////////////*/
+
+/**
+* @author: H i u k k y
+*
+* @section: mixins/mixins
+*/
+
+// Calc
+@mixin calc($property, $expression) {
+    #{$property}: -webkit-calc(#{$expression});
+    #{$property}: -moz-calc(#{$expression});
+    #{$property}: calc(#{$expression});
+};
+
+// Font
+@mixin font($font: $quicksand, $color: $white, $size: 1rem) {
+    font-family: #{$font};
+    font-size: #{$size};
+    color: #{$color};
+};
+
+// Properties initial of element
+@mixin initProperties($position, $height, $width) {
+    position: #{$position};
+    height: #{$height};
+    width: #{$width};
+};
