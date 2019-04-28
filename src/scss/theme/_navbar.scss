@@ -13,24 +13,24 @@
 
 // Default
 .fas {
-    color: rgba(56, 56, 56, 0.7) !important;
+    color: $grey !important;
 }
 
 .dropdown-user{
-    background: $light;
-    box-shadow: -4px 5px 10px rgba(56, 56, 56, 0.2);
+    background: $white;
+    box-shadow: -4px 5px 10px $shadow;
 
     @if &{
         .fa-sign-out-alt {
-            color: #e17055 !important;
+            color: $red !important;
         }
     }
 }
 
 // Skins
 .navbar-light {
-    background: $light;
-    box-shadow: -4px 5px 10px rgba(56, 56, 56, 0.2);
+    background: $white;
+    box-shadow: -4px 5px 10px $shadow;
 }
 
 // Utils

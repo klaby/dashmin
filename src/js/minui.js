@@ -24,6 +24,8 @@ var menuToggle = document.getElementById('menu-toggle');
 var sidebar = document.getElementById('sidebar');
 var navbar = document.getElementById('navbar');
 
+// Content
+var content = document.querySelector('.content');
 
 /**
  * FUNCTIONS
@@ -38,6 +40,7 @@ function showHideSidebar(){
         switch(value){
             case 'collapse':    
                 showSide();
+
             break;
 
             case 'is-collapsed':
@@ -56,6 +59,7 @@ function showSide(){
     } else{
         navbar.classList.replace('navbar', 'navbar-min');
         replaceAll(sidebar, ['sidebar', 'collapse'], ['sidebar-min', 'is-collapsed']);
+        content.classList.replace('content', 'content-min');
     }
 }
 
@@ -67,6 +71,7 @@ function hideSide(){
     } else{
         navbar.classList.replace('navbar-min', 'navbar');
         replaceAll(sidebar, ['sidebar-min', 'is-collapsed'], ['sidebar', 'collapse']);
+        content.classList.replace('content-min', 'content');
     }
 }
 

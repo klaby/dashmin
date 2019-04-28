@@ -1,3 +1,6 @@
+// BASE
+@import "base/reset";
+
 // VARIABLES
 @import "variables/variables";
 
@@ -8,6 +11,7 @@
 @import "theme/colors";
 @import "theme/navbar";
 @import "theme/sidebar";
+@import "theme/box";
 
 // UTILS
 @import "utils/utils";
@@ -15,8 +19,9 @@
 // STATE
 @import "state/state";
 
-// BASE
-@import "base/reset";
+// COMPONENETS
+@import "components/box";
+@import "components/breadcrumb";
 
 // LAYOUT
 @import "layout/content";

@@ -12,11 +12,18 @@
 */
 
 // Colors
-$dark: #2d3436;
-$light: #f5f6fa;
-$white: #f1f2f6;
-$white-light: #dfe4ea;
-$blue: #4b6584;
+$dark:       rgba(45, 52, 54, 1);
+$white:      rgba(245, 246, 250, 1);
+$blue:       rgba(75, 101, 132, 1);
+$yellow:     rgba(250, 211, 144, 1);
+$green:      rgba(0, 184, 148, 1);
+$green-light:rgba(85, 239, 196, 1);
+$purple:     rgba(120, 111, 166, 1);
+$grey:       rgba(56, 56, 56, 0.7);
+$red:        rgba(225, 112, 85, 1);
 
-// Opacity
-$linx-white: rgba(245, 246, 250, 0.1);
+// Opacity for Sidebar
+$linx-white:rgba(245, 246, 250, 0.1);
+
+// Shadow
+$shadow:     rgba(56, 56, 56, 0.2);

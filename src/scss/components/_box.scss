@@ -1,0 +1,53 @@
+/* -----------------------------------*/
+/* ------------>>> BOX <<<------------*/
+/* -----------------------------------*/
+
+/* COMPONENETS > BOX
+//////////////////////////////////////*/
+
+/**
+* @author: H i u k k y
+*
+* @section componenets/box
+*/
+
+// Box dashboard
+.box-dash {
+    min-width: 260px;
+    height: 100px;
+    font-family: $roboto;
+    color: $grey;  
+
+    @extend %flex-row;
+
+    @if & {
+        .box-icon{
+            height: 100px;
+            width: 120px;
+            @include initProperties(relative, 100px, 120px);
+            @extend %align-center;
+        }
+        .fas {
+            font-size: 4rem;
+            color: $white !important;
+        }
+        .box-body {
+            padding: 15px;
+            @include calc(width, '100% - 120px');
+            @include calc(height, '100px - 30px');
+
+            @if & {
+                .box-title {
+                    height: 20px;
+                    font-size: 1.2rem;
+                }
+                .box-count {
+                    height: 50px;
+                    font-size: 2.5rem;
+                    display: flex;
+                    align-items: flex-end;
+                }
+            }
+        }
+    }
+}
