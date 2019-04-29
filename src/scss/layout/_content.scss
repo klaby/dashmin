@@ -17,6 +17,8 @@
     height: 100%;
     margin-top: 50px;
     padding: 20px;
+    @extend %flex-collumn;
+    justify-content: space-between;
 }
 
 // Content min

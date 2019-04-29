@@ -13,7 +13,7 @@
 
 // Box dashboard
 .box-dash {
-    min-width: 260px;
+    min-width: 250px;
     height: 100px;
     font-family: $roboto;
     color: $grey;  
@@ -29,7 +29,7 @@
         }
         .fas {
             font-size: 4rem;
-            color: $white !important;
+            color: $light !important;
         }
         .box-body {
             padding: 15px;

@@ -27,7 +27,7 @@
 
     @if &{
         .link-brand{
-            @include font($quicksand, $white, 1.1rem);
+            @include font($quicksand, $light, 1.1rem);
             
             @if &{
                 strong{
@@ -62,14 +62,14 @@
             }
         }
         .user-name {
-            @include font($roboto, $white, 0.8rem);
+            @include font($roboto, $light, 0.8rem);
             margin-left: 10px;
         }
     }
 }
 
 .menu-name{
-    @include font($quicksand, $white, .7rem); 
+    @include font($quicksand, $light, .7rem); 
     font-weight: 500;
     line-height: 30px;
     padding: 0 0 0 10px;
@@ -119,7 +119,7 @@
 
             @if &{
                 .button-name{
-                    @include font($quicksand, $white, .8rem); 
+                    @include font($quicksand, $light, .8rem); 
                 }
             }
         }
@@ -133,7 +133,7 @@
 
     @if &{
         .footer-org{
-            @include font($quicksand, $white, .8rem);
+            @include font($quicksand, $light, .8rem);
 
             @if &{
                 strong{

@@ -1,0 +1,29 @@
+/* -----------------------------------*/
+/* ----------->>> GRID <<<------------*/
+/* -----------------------------------*/
+
+/* COMPONENETS > GRID
+//////////////////////////////////////*/
+
+/**
+* @author: H i u k k y
+*
+* @section componenets/grid
+*/
+.col {
+    display: grid;
+    grid-gap: 10px;
+}
+
+.col-1 {
+    @extend .col;
+    grid-template-columns: repeat(1, 1fr);
+}
+.col-2 {
+    @extend .col;
+    grid-template-columns: repeat(2, 1fr);
+}
+.col-3 {
+    @extend .col;
+    grid-template-columns: repeat(3, 1fr);
+}

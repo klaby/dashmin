@@ -14,7 +14,8 @@
 // Breadcrumb
 .breadcrumb {
     height: 50px;
-    background: $white;
+    @include calc(width, '100% - 10px');
+    background: $light;
     padding: 0px 5px 0px 5px;
     margin-bottom: 10px;
     @include font($roboto, $grey);

@@ -1,0 +1,34 @@
+/* -----------------------------------*/
+/* ----------->>> FORM <<<------------*/
+/* -----------------------------------*/
+
+/* COMPONENETS > FORM
+//////////////////////////////////////*/
+
+/**
+* @author: H i u k k y
+*
+* @section componenets/form
+*/
+
+.form {
+    border-top: 5px solid $blue;
+    @include calc(width, '100% - 20px');
+    padding: 20px 10px 10px 10px;
+    background: $white-light;
+}
+.form-group {
+    @extend %flex-collumn;  
+    @include font($roboto, $grey);
+
+    @if & {
+       .form-input {
+           margin: 10px 0px 10px 0px;
+           height: 30px;
+           padding: 0px 10px 0px 10px;
+           border: 1.2px solid $shadow;
+           @include font($roboto, $grey);
+           background: $white;
+       } 
+    }
+}
