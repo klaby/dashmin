@@ -11,9 +11,17 @@
 * @section componenets/box
 */
 
+// Box
+.box {
+    height: 40px;
+    width: 100%;
+    @extend %align-center;
+    font-family: $roboto;
+}
+
 // Box dashboard
 .box-dash {
-    min-width: 250px;
+    min-width: 230px;
     height: 100px;
     font-family: $roboto;
     color: $grey;  

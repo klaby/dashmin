@@ -31,3 +31,19 @@
     height: #{$height};
     width: #{$width};
 };
+
+// Calc columns
+@mixin columns($numberColumns, $remainingColumns) {  
+    
+    // Default
+    margin: 0 2% 2% 0;
+
+    &:last-child {
+        margin-right: 0;
+    }
+
+    // Calc
+    width: -webkit-calc(#{ (100% / $numberColumns) - (2% * $remainingColumns) / 12 });
+    width: -moz-calc(#{ (100% / $numberColumns) - (2% * $remainingColumns) / 12 });
+    width: calc(#{ (100% / $numberColumns) - (2% * $remainingColumns) / 12 });
+}

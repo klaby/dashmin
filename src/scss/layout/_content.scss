@@ -11,13 +11,25 @@
 * @section layout/content
 */
 
+// Sample TEMP
+.sample {
+    @include initProperties(relative, 100vh, 100%);
+}
+.sample-title {
+    font-size: 1.5rem;
+    color: $grey;
+    font-family: $roboto;
+    text-align: center;
+    padding: 20px 0px 35px 0px;
+}
+
 // Content
 .content {
     @include calc(width, '100% - 40px');
     height: 100%;
     margin-top: 50px;
     padding: 20px;
-    @extend %flex-collumn;
+    @extend %flex-column;
     justify-content: space-between;
 }
 
@@ -44,13 +56,13 @@
         margin: 50px 0px 0px 200px;
     }
     .dashboard {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
 // 1200px
 @media only screen and (min-width: 1200px){
     .dashboard {
-        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-columns: repeat(4, 1fr);
     }    
 }

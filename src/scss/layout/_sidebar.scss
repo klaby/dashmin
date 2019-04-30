@@ -16,7 +16,7 @@
     height: 100vh;
     width: 200px;
     @extend %left-top-fixed;
-    @extend %flex-collumn;
+    @extend %flex-column;
     @extend %no-select;
     z-index: 100;
 }
@@ -167,7 +167,7 @@
         .sidebar-profile {
             height: 70px;
             @extend  %align-center;
-            @extend %flex-collumn;
+            @extend %flex-column;
 
             .image-status{
                 @include initProperties(absolute, 40px, 40px);

@@ -12,13 +12,11 @@
 */
 
 .form {
-    border-top: 5px solid $blue;
     @include calc(width, '100% - 20px');
     padding: 20px 10px 10px 10px;
-    background: $white-light;
 }
 .form-group {
-    @extend %flex-collumn;  
+    @extend %flex-column;  
     @include font($roboto, $grey);
 
     @if & {

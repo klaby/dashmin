@@ -60,7 +60,7 @@
         .profile-details{
             @include initProperties(relative, 120px, 100%);
             @extend  %align-center;
-            @extend %flex-collumn;
+            @extend %flex-column;
 
             @if &{
                 .image-status{
@@ -92,7 +92,7 @@
         .drop-buttons{
             @include initProperties(relative, 180px, 100%);  
             @extend  %align-center;
-            @extend %flex-collumn;
+            @extend %flex-column;
 
             @if &{
                 .drop-button{
