@@ -1,0 +1,58 @@
+/* COLORS */
+$blue:       rgba(75, 101, 132, 1);    // Blue
+$dark:       rgba(45, 52, 54, 1);      // Dark
+$gray:       rgba(56, 56, 56, 0.7);    // Gray
+$white:      rgba(255, 255, 255, 1);   // White
+$green:      rgba(0, 184, 148, 1);     // Green
+$green-light:rgba(85, 239, 196, 1);    // Green-light
+$red:        rgba(225, 112, 85, 1);    // Red
+
+// Opacity for Sidebar
+$light:      rgba(245, 246, 250, 0.1); // Bank very clear
+$shadow:     rgba(56, 56, 56, 0.2);    // Dark
+
+// Fas
+.fas {
+    color: $gray !important;
+}
+
+/* DEFAULT */
+// Sidebar
+.sidebar {
+    box-shadow: 10px 2px 15px $shadow; 
+}
+.sidebar-brand, .menu-name, .sidebar-buttons, .sidebar-footer{
+    background: $light;
+}
+
+// Navbar
+.navbar {
+    box-shadow: -4px 5px 10px $shadow;
+}
+.dropdown-user{
+    background: $light;
+    box-shadow: -4px 5px 10px $shadow;
+
+    @if &{
+        .fa-sign-out-alt {
+            color: $red !important;
+        }
+    }
+}
+
+/* SKINS */
+.bg-blue {
+    background: $blue;
+}
+
+/* UTILS */
+.hr-dark {
+    margin: 0;
+    border: solid 0.5px $dark;
+    opacity: 0.1;
+}
+.hr-light {
+    margin: 0;
+    border: solid 0.5px $light;
+    opacity: 0.2;
+}

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <!-- Meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Styles CSS -->
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/minui.css">
+
+    <!-- Fontawesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
+
+    <!-- Title -->
+    <title>Project Structure</title>
+</head>
+<body>
+    
+    <!-- Navbar -->
+    <nav class="navbar bg-light">
+        <div class="navbar-left">
+            <!-- Buttons -->
+            <ul class="navbar-buttons">
+                <li class="nav-button" id="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </li>
+                <li class="nav-button">
+                    <i class="fas fa-bell"></i>
+                    <span class="notification"></span>
+                </li>
+                <li class="nav-button">
+                    <i class="fas fa-envelope"></i>
+                    <span class="notification"></span>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Drop User -->
+        <div class="navbar-right">
+            <div class="dropdown-user-min bg-light" id="dropdown-user">
+
+                <i class="fas fa-caret-down" id="drop-toggle"></i>
+
+                <!-- Profile -->
+                <div class="profile-details">
+                    <div class="image-status">
+                        <img class="img-profile" src="assets/logo-user.jpg" alt="">
+                        <span class="is-online"></span>
+                    </div>
+                    <span class="user-name"> H i u k k y </span>
+                    <span class="user-function"> Administrator </span>
+                </div>
+
+                <hr class="hr-dark">
+                <!-- Buttons -->
+                <ul class="drop-buttons">
+
+                    <li class="drop-button">
+                        <i class="fas fa-tint"></i><a class="button-name" href=""> Customization </a>
+                    </li>  
+                    
+                    <li class="drop-button">
+                        <i class="fas fa-cog"></i><a class="button-name" href=""> Settings </a>
+                    </li> 
+                    <li class="drop-button">
+                        <i class="fas fa-user-alt"></i><a class="button-name" href=""> Profile </a>
+                    </li>  
+                    <li class="drop-button">
+                        <i class="fas fa-sign-out-alt"></i><a class="button-name" href=""> Logout </a>
+                    </li>       
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sidebar -->
+    <aside class="sidebar bg-blue is-visible">
+        <!-- Brand -->
+        <div class="sidebar-brand">
+            <h1>
+                <a class="link-brand lg" href=""><strong>DASH</strong>min</a>
+            </h1>
+        </div>
+
+        <!-- Profile -->
+        <div class="sidebar-profile">
+            <div class="image-status">
+                <img class="img-profile" src="assets/logo-user.jpg" alt="">
+                <span class="is-online"></span>
+            </div>
+            <span class="user-name"> H i u k k y </span>
+        </div>
+
+        <!-- Buttons -->
+        <ul class="sidebar-buttons">                
+            <li class="side-button">
+                <i class="fas fa-tachometer-alt"></i><a class="button-name" href=""> Dashboard </a>
+            </li>
+            <li class="side-button">
+                <i class="fas fa-users"></i><a class="button-name" href=""> Users </a>
+            </li>
+                                
+        </ul>
+
+        <!-- Footer -->
+        <div class="sidebar-footer">
+            <p class="footer-org lg"><strong>DASH</strong>min</p>
+        </div>
+    </aside>
+
+    <!-- Content -->
+    <div class="container-fluid">
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/minui.js"></script>
+
+</body>
+</html>

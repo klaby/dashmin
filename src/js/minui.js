@@ -1,130 +1,36 @@
-/* -----------------------------------*/
-/* ---------->>> minUI.js <<<---------*/
-/* -----------------------------------*/
-
-/* JS > MINUI
-//////////////////////////////////////*/
-
 /**
-* @author H i u k k y
-*
-* @section js/minui.js
-*/
-
-/**
- * VARIABLES
+ * NAVBAR
  */
 
-// Navbar
-var dropToggle = document.getElementById('drop-toggle');
-var dropdownUser = document.getElementById('dropdown-user');
+const menuToggle = document.getElementById('menu-toggle');
+const sidebar = document.querySelector('.sidebar');
+const dropToggle = document.getElementById('drop-toggle');
+const dropdownUser = document.getElementById('dropdown-user');
 
-// Sidebar
-var menuToggle = document.getElementById('menu-toggle');
-var sidebar = document.getElementById('sidebar');
-var navbar = document.getElementById('navbar');
-
-// Content
-var content = document.querySelector('.content');
-
-/**
- * FUNCTIONS
- */
-
-// Sidebar
-menuToggle.addEventListener('click', e=> showHideSidebar());
-
-function showHideSidebar(){
-    [...sidebar.classList].map((value)=>{
-
-        switch(value){
-            case 'collapse':    
-                showSide();
-
-            break;
-
-            case 'is-collapsed':
-                hideSide();
-            break;
-        }
-
-    });
-}
-
-// Show Sidebar
-function showSide(){
-    if(window.innerWidth < 767){
-        sidebar.style.display = 'block';
-        sidebar.classList.replace('collapse', 'is-collapsed');
-    } else{
-        navbar.classList.replace('navbar', 'navbar-min');
-        replaceAll(sidebar, ['sidebar', 'collapse'], ['sidebar-min', 'is-collapsed']);
-        content.classList.replace('content', 'content-min');
-    }
-}
-
-//Hide Sidebar
-function hideSide(){
-    if(window.innerWidth < 767){
-        sidebar.style.display = 'none';
-        sidebar.classList.replace('is-collapsed', 'collapse');
-    } else{
-        navbar.classList.replace('navbar-min', 'navbar');
-        replaceAll(sidebar, ['sidebar-min', 'is-collapsed'], ['sidebar', 'collapse']);
-        content.classList.replace('content-min', 'content');
-    }
-}
-
-// Navbar - Dropdown User
-dropToggle.addEventListener('click',  event =>  showHideDrop());
-
-function showHideDrop(){
-    [...dropdownUser.classList].map((value)=>{
-
-        switch(value){
-            case 'collapse':
-                showDrop();
-            break;
-
-            case 'is-collapsed':
-                hideDrop();
-            break;
-        }
-
-    });
-}
-
-// Show Drop
-function showDrop(){
-    dropToggle.classList.replace('fa-caret-down', 'fa-caret-up');
-    replaceAll(dropdownUser, ['dropdown-user-min', 'collapse'], ['dropdown-user', 'is-collapsed']);
-}
-
-// Hide Drop
-function hideDrop(){
-    dropToggle.classList.replace('fa-caret-up', 'fa-caret-down');
-    replaceAll(dropdownUser, ['dropdown-user', 'is-collapsed'], ['dropdown-user-min', 'collapse']);
-}
-
-/**
- * DEFAULT
- */
-
-/* Hidden Sidebar / DropDown user */ 
-window.addEventListener('click', event => {
-    if(event.target !== dropdownUser && !dropdownUser.contains(event.target)) hideDrop();
-    if(!sidebar.contains(event.target) && window.innerWidth < 767 && !menuToggle.contains(event.target)) hideSide();
+// Menu
+menuToggle.addEventListener('click', e => {
+    if(window.innerWidth > 768 && sidebar.classList.contains('is-visible')) hideSidebar();
+    else showSidebar();
 });
 
-/* Replace All */
-function replaceAll(element, oldClass=[], newClass=[]){
-    
-    if(!oldClass.indexOf('') && !newClass.indexOf('')){
-        console.error("replaceAll: Enter a value to be replaced");
-    } else {
-        for(let i = 0; i < oldClass.length && i < newClass.length; i++ ){
-            element.classList.replace(oldClass[i], newClass[i]);
-        }  
-    }
+function showSidebar() {
+    sidebar.classList.replace('is-hidden', 'is-visible');
+}
+function hideSidebar(){
+    sidebar.classList.replace('is-visible', 'is-hidden');
+}
 
+// Dropdown
+dropToggle.addEventListener('click', e => {
+    if(dropdownUser.classList.contains('dropdown-user-min')) showDrop();
+    else hideDrop();
+});
+
+function showDrop(){
+    dropToggle.classList.replace('fa-caret-down', 'fa-caret-up');
+    dropdownUser.classList.replace('dropdown-user-min', 'dropdown-user');
+}
+function hideDrop(){
+    dropToggle.classList.replace('fa-caret-up', 'fa-caret-down');
+    dropdownUser.classList.replace('dropdown-user', 'dropdown-user-min');
 }

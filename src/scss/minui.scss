@@ -1,32 +1,7 @@
-// BASE
-@import "base/reset";
-
-// VARIABLES
-@import "variables/variables";
-
-// MIXINS
-@import "mixins/mixins";
-
-// THEMES
-@import "theme/colors";
-@import "theme/navbar";
-@import "theme/sidebar";
-@import "theme/box";
-@import "theme/form";
-
-// UTILS
-@import "utils/utils";
-
-// STATE
-@import "state/state";
-
-// COMPONENETS
-@import "components/box";
-@import "components/breadcrumb";
-@import "components/form";
-
-// LAYOUT
-@import "layout/grid";
-@import "layout/content";
-@import "layout/navbar";
-@import "layout/sidebar";
+@import "reset";
+@import "variables";
+@import "mixins";
+@import "theme";
+@import "state";
+@import "navbar";
+@import "sidebar";
