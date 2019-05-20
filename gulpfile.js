@@ -12,11 +12,11 @@ const gulp            = require('gulp'),
 const paths = {
     styles: {
         src: ['node_modules/bootstrap/scss/bootstrap.scss','src/scss/*.scss'],
-        dest: 'src/css'
+        dest: 'src/dist/css'
     },
     scripts: {
-        src: ['node_modules/bootstrap/dist/js/bootstrap.min.js', 'node_modules/jquery/dist/jquery.min.js', 'node_modules/popper.js/dist/popper.min.js'],
-        dest: 'src/js'
+        src: ['node_modules/bootstrap/dist/js/bootstrap.min.js', 'node_modules/jquery/dist/jquery.min.js', 'node_modules/popper.js/dist/umd/popper.min.js', 'src/js/minui.js'],
+        dest: 'src/dist/js'
     },
     html: {
         src: 'src/*.html'

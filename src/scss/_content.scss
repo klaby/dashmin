@@ -1,0 +1,18 @@
+.content {
+    @include initProperties(relative, 100%, 100%);
+    padding: 20px 0px 20px 0px;
+    top: 50px;
+}
+
+// Breakpoints
+@media only screen and (min-width: 576px){
+    .content {
+        @include initProperties(relative, 100%, calc(100% - 200px));
+        left: 200px;
+        padding: 20px;
+    }
+    .min {
+        @include calc(width, '100% - 50px');
+        left: 50px;
+    }
+}

@@ -1,7 +1,5 @@
 .navbar {
-    position: fixed;
-    height: 50px;
-    width: 100%;
+    @include initProperties(fixed, 50px, 100%);
     padding: 0;
     z-index: 300 !important;
     flex-wrap: nowrap;
@@ -171,4 +169,15 @@
     cursor: pointer;
     background: rgba(56, 56, 56, 0.1);
     transition: .3s;
+}
+
+// Breakpoints
+@media only screen and (min-width: 576px){
+    .navbar {
+        @include calc(width, '100% - 200px');
+        right: 0;
+    }
+    .min {
+        @include calc(width, '100% - 50px');
+    }
 }
