@@ -8,11 +8,10 @@
     z-index: 100;
 
     @if & {
+        // Brand
         .sidebar-brand{
             @include initProperties(relative, 50px, 200px);
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            @extend %flex-center;
         
             @if &{
                 .link-brand{
@@ -34,14 +33,10 @@
             }
         }
         
+        // Profile
         .sidebar-profile{
             @include initProperties(relative, 70px, 200px);
-        
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        
-            flex-direction: row;
+            @extend %flex-center;
         
             @if &{
                 .image-status{
@@ -51,6 +46,7 @@
                         .img-profile {
                             @include initProperties('', 40px, 40px);
                             border-radius: 50px;
+                            transition: .2s;
                         }
                     }
                 }
@@ -61,9 +57,9 @@
             }
         }
         
+        // Buttons
         .sidebar-buttons {
-            @include initProperties(relative,'', 200px);
-            @include calc(height, '100vh - 200px');
+            @include initProperties(relative, calc(100vh - 200px), 200px);
             overflow: auto;
         
             &::-webkit-scrollbar{
@@ -99,10 +95,7 @@
                             font-size: 1rem;
                             width: 20px;
                             height: 20px;
-                            
-                            display: flex;
-                            justify-content: center;
-                            align-items: center;
+                            @extend %flex-center;
                         }
                     }
         
@@ -115,12 +108,10 @@
             }
         }
         
+        // Footer
         .sidebar-footer{
             @include initProperties(relative, 30px, 200px);
-        
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            @extend %flex-center;
         
             bottom: 0;
         
@@ -151,7 +142,7 @@
     width: 0px !important;
 
     @if &{
-        
+        // Brand
         .sidebar-brand{
             width: 50px !important;
 
@@ -163,63 +154,39 @@
             }
         }
 
+        // Profile
         .sidebar-profile {
-            height: 70px;
-            width: 50px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-            flex-direction: column;
+            @include initProperties(relative, 70px, 50px);
 
             .image-status{
                 @include initProperties(absolute, 40px, 40px);
-    
-                @if &{
-                    .img-profile {
-                        @include initProperties('', 40px, 40px);
-                        border-radius: 50px;
-                        transition: .2s;
-                    }
-                    .is-online {
-                        width: 10px;
-                        height: 10px;
-                    }
-                }
             }
-            @if &{
+            @if & {
                 .user-name, .user-function{
                     font-size: 0;
                 }
             }
         }
 
+        // Buttons
         .sidebar-buttons{
-            @include calc(height, '100vh - 200px');
+            @include initProperties(relative, calc(100vh - 200px), 50px);
 
             @if &{
                 .side-button{
                     @include initProperties('', 45px, 48px!important);
-                    
-                    display: flex;
                     justify-content: center;
-                    align-items: center;
-
-                    transition: .2s;
-
-                    &:hover{
-                        padding-left: 2px;  
-                    }
                 }
                 .button-name{
                     display: none;  
                 }
                 .fas{
-                    padding: 0;
+                    padding: 0 !important;
                 }
             }
         }
 
+        // Footer
         .sidebar-footer {
             width: 50px !important;
 
@@ -242,6 +209,7 @@
 
 // Breakpoints
 @media only screen and (min-width: 576px){
+    // Sidebar
     .sidebar {
         height: 100vh;
         width: 200px;
@@ -253,6 +221,8 @@
             }
         }
     }
+
+    // Sidebar-min
     .sidebar-min{
         width: 50px !important;
     }

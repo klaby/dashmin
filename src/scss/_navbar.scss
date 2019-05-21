@@ -1,3 +1,4 @@
+// Navbar
 .navbar {
     @include initProperties(fixed, 50px, 100%);
     padding: 0;
@@ -7,18 +8,12 @@
 
 // Left
 .navbar-buttons{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
+    @extend %flex-center;
     flex-direction: row;
 
     @if &{
         .nav-button{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
+            @extend %flex-center;
             @include initProperties(relative, 50px, 50px);
             transition: .3s;
 
@@ -44,11 +39,7 @@
     @if &{
         .profile-details{
             @include initProperties(relative, 120px, 100%);
-            
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
+            @extend %flex-center;
             flex-direction: column;
 
             @if &{
@@ -80,11 +71,7 @@
     @if &{
         .drop-buttons{
             @include initProperties(relative, 180px, 100%);  
-
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
+            @extend %flex-center;
             flex-direction: column;
 
             @if &{
@@ -104,10 +91,7 @@
                             height: 20px;
                             padding: 0px 15px 0px 25px;
                             font-size: 1rem;
-
-                            display: flex;
-                            justify-content: center;
-                            align-items: center;
+                            @extend %flex-center;
 
                         }
                     }
@@ -131,10 +115,7 @@
     @if &{
         .profile-details{
             @include initProperties(relative, 50px, 50px);
-            
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            @extend %flex-center;
 
             @if &{
                 .image-status{
