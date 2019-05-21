@@ -1,10 +1,25 @@
+/* -----------------------------------*/
+/* ----------->>> minUI <<<-----------*/
+/* -----------------------------------*/
+
+/**
+* @author: H i u k k y
+*
+*/
+
 @import "reset";
 @import "variables";
 @import "base";
 @import "mixins";
 @import "util";
-@import "theme";
+
+@import "theme/colors";
+@import "theme/skins";
+@import "theme/theme";
+
 @import "state";
 @import "navbar";
 @import "sidebar";
 @import "content";
+
+@import "components/box";

@@ -1,22 +1,18 @@
-/* COLORS */
-$blue:       rgba(75, 101, 132, 1);    // Blue
-$dark:       rgba(45, 52, 54, 1);      // Dark
-$gray:       rgba(56, 56, 56, 0.7);    // Gray
-$white:      rgba(255, 255, 255, 1);   // White
-$green:      rgba(0, 184, 148, 1);     // Green
-$green-light:rgba(85, 239, 196, 1);    // Green-light
-$red:        rgba(225, 112, 85, 1);    // Red
+/* -----------------------------------*/
+/* ---------->>> THEME <<<------------*/
+/* -----------------------------------*/
 
-// Opacity for Sidebar
-$light:      rgba(245, 246, 250, 0.1); // Bank very clear
-$shadow:     rgba(56, 56, 56, 0.2);    // Dark
+/**
+* @author: H i u k k y
+*
+*/
 
+/* DEFAULT */
 // Fas
 .fas {
     color: $gray !important;
 }
 
-/* DEFAULT */
 // Sidebar
 .sidebar {
     box-shadow: 10px 2px 15px $shadow; 
@@ -40,9 +36,9 @@ $shadow:     rgba(56, 56, 56, 0.2);    // Dark
     }
 }
 
-/* SKINS */
-.bg-blue {
-    background: $blue;
+// BOX
+.box-dash {
+    background: $gray-1;
 }
 
 /* UTILS */

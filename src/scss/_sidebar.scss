@@ -1,3 +1,12 @@
+/* -----------------------------------*/
+/* ---------->>> SIDEBAR <<<----------*/
+/* -----------------------------------*/
+
+/**
+* @author: H i u k k y
+*
+*/
+
 // Sidebar
 .sidebar {
     position: fixed;
@@ -75,6 +84,7 @@
                     border-right: 0;
                     border-top: 0;
                     border-bottom: 0;
+                    border: 0px, 0px, 0px, 2px;
                     transition: .2s;
                 
                     &:hover{
@@ -91,7 +101,7 @@
                     @if &{
                         .fas{
                             color: #f1f2f6!important;
-                            padding: 0px 15px 0px 25px;
+                            padding: 0px 25px 0px 35px;
                             font-size: 1rem;
                             width: 20px;
                             height: 20px;

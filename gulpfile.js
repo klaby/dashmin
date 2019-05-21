@@ -11,7 +11,7 @@ const gulp            = require('gulp'),
 // Paths
 const paths = {
     styles: {
-        src: ['node_modules/bootstrap/scss/bootstrap.scss','src/scss/*.scss'],
+        src: ['node_modules/bootstrap/scss/bootstrap.scss','src/scss/**/*.scss'],
         dest: 'src/dist/css'
     },
     scripts: {
@@ -45,6 +45,8 @@ function watch(){
     });
 
     gulp.watch(paths.styles.src, styles);
+    gulp.watch(paths.scripts.src, scripts);
+    
     gulp.watch(paths.html.src).on('change', browserSync.reload);  
 }
 

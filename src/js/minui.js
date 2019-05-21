@@ -1,3 +1,16 @@
+/* -----------------------------------*/
+/* ---------->>> minUI.js <<<---------*/
+/* -----------------------------------*/
+
+/* JS > MINUI
+//////////////////////////////////////*/
+
+/**
+* @author H i u k k y
+*
+* @section js/minui.js
+*/
+
 /**
  * NAVBAR
  */
@@ -61,3 +74,9 @@ function hideDrop(){
     dropToggle.classList.replace('fa-caret-up', 'fa-caret-down');
     dropdownUser.classList.replace('dropdown-user', 'dropdown-user-min');
 }
+
+// Hidden Sidebar - DropDown user
+window.addEventListener('click', event => {
+    if(event.target !== dropdownUser && !dropdownUser.contains(event.target)) hideDrop();
+    if(!sidebar.contains(event.target) && window.innerWidth < 767 && !menuToggle.contains(event.target)) hideSidebar();
+});

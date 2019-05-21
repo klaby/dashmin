@@ -1,3 +1,12 @@
+/* -----------------------------------*/
+/* ---------->>> CONTENT <<<----------*/
+/* -----------------------------------*/
+
+/**
+* @author: H i u k k y
+*
+*/
+
 // Content
 .content {
     @include initProperties(relative, 100%, 100%);
@@ -5,7 +14,15 @@
     top: 50px;
 }
 
+// Dashboard
+.dashboard {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 15px;
+}
+
 // Breakpoints
+// 576px
 @media only screen and (min-width: 576px){
     .content {
         @include initProperties(relative, 100%, calc(100% - 200px));
@@ -16,4 +33,18 @@
         @include calc(width, '100% - 50px');
         left: 50px;
     }
+}
+
+// 768px
+@media only screen and (min-width: 768px){
+    .dashboard {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+// 1200px
+@media only screen and (min-width: 1200px){
+    .dashboard {
+        grid-template-columns: repeat(4, 1fr);
+    }    
 }
