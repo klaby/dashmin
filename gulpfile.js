@@ -15,7 +15,7 @@ const paths = {
         dest: 'src/dist/css'
     },
     scripts: {
-        src: ['node_modules/bootstrap/dist/js/bootstrap.min.js', 'node_modules/jquery/dist/jquery.min.js', 'node_modules/popper.js/dist/umd/popper.min.js', 'src/js/minui.js'],
+        src: ['node_modules/bootstrap/dist/js/bootstrap.min.js', 'node_modules/jquery/dist/jquery.min.js', 'node_modules/popper.js/dist/umd/popper.min.js', 'src/js/**/*.js'],
         dest: 'src/dist/js'
     },
     html: {
