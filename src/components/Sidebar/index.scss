@@ -1,38 +1,41 @@
-/* -----------------------------------*/
-/* ---------->>> SIDEBAR <<<----------*/
-/* -----------------------------------*/
-
-/**
-* @author: H i u k k y
-*
-*/
+// Variables
+$roboto: 'Roboto', sans-serif;
+$quicksand: 'Quicksand', sans-serif;
 
 // Sidebar
 .sidebar {
     position: fixed;
-    height: 100vh;
+    height: calc(100vh - 50px);
     width: 0;
     top: 50px;
+    background: rgba(62, 81, 117, 1);
+    transition: .3s;
+    box-shadow: 10px 2px 15px rgba(56, 56, 56, 0.2);
     overflow: hidden;
     z-index: 100;
 
     @if & {
-        // Brand
-        .sidebar-brand{
-            @include initProperties(relative, 50px, 200px);
-            @extend %flex-center;
-        
-            @if &{
-                .link-brand{
-                    @include font($quicksand, $white, 1.1rem);
-                    
-                    @if &{
-                        strong{
-                            font-weight: 600;
-                        }
+        .sidebar-brand {
+            position: relative;
+            height: 50px;
+            width: 200px;
+            transition: .3s;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            @if & {
+                .link-brand {
+                    font-family: $quicksand;
+                    color: #FFF;
+                    font-size: 1.1rem;
+
+                    strong {
+                        font-weight: bold;
                     }
-                }
-        
+                }   
+                
                 .lg{
                     display: block;
                 }
@@ -41,43 +44,59 @@
                 }
             }
         }
-        
-        // Profile
-        .sidebar-profile{
-            @include initProperties(relative, 70px, 200px);
-            @extend %flex-center;
-        
-            @if &{
-                .image-status{
-                    @include initProperties(relative, 40px, 40px);
-        
-                    @if &{
+
+        .sidebar-profile {
+            position: relative;
+            height: 70px;
+            width: 200px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            @if & {
+                .image-status {
+                    position: relative;
+                    height: 40px;
+                    width: 40px;
+                    transition: .3s;
+
+                    @if & {
                         .img-profile {
-                            @include initProperties('', 40px, 40px);
+                            height: 40px;
+                            width: 40px;
                             border-radius: 50px;
-                            transition: .2s;
+                            
                         }
                     }
                 }
+
                 .user-name {
-                    @include font($roboto, $white, 0.8rem);
+                    font-family: $roboto;
+                    color: #fff;
+                    font-size: .8rem;
                     margin-left: 10px;
                 }
+                
             }
         }
-        
-        // Buttons
+
         .sidebar-buttons {
-            @include initProperties(relative, calc(100vh - 200px), 200px);
+            position: relative;
+            height: calc(100vh - 200px);
+            width: 200px;
             overflow: auto;
-        
+            transition: .3s;
+            cursor: pointer;
+            
             &::-webkit-scrollbar{
                 width: 0;
             }
-        
-            @if &{
-                .side-button{
-                    @include initProperties('', 45px, 198px);
+
+            @if & {
+                .side-button {
+                    height: 45px;
+                    width: 198px;
                     display: flex;
                     align-items: center;
                     border: 2px solid transparent;
@@ -85,10 +104,9 @@
                     border-top: 0;
                     border-bottom: 0;
                     border: 0px, 0px, 0px, 2px;
-                    transition: .2s;
-                
+                    transition: .3s;
+
                     &:hover{
-                        cursor: pointer;
                         background: rgba(241, 242, 246, 0.1);
                         border: 2px solid #f1f2f6;  
                         border-right: 0;
@@ -97,41 +115,53 @@
                         padding-left: 5px;
                         transition: .3s;
                     }
-        
+
                     @if &{
                         .fas{
                             color: #f1f2f6!important;
-                            padding: 0px 25px 0px 35px;
+                            padding: 0px 20px 0px 30px;
                             font-size: 1rem;
                             width: 20px;
                             height: 20px;
-                            @extend %flex-center;
+
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
                         }
                     }
-        
+
                     @if &{
                         .button-name{
-                            @include font($quicksand, $white, .8rem); 
+                            font-family: $quicksand;
+                            color: #fff;
+                            font-size: .8rem;
                         }
                     }
                 }
             }
         }
-        
-        // Footer
+
         .sidebar-footer{
-            @include initProperties(relative, 30px, 200px);
-            @extend %flex-center;
+            position: relative;
+            height: 30px;
+            width: 200px;
+            transition: .3s;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
         
             bottom: 0;
         
             @if &{
                 .footer-org{
-                    @include font($quicksand, $white, .8rem);
-        
+                    font-family: $quicksand;
+                    color: #fff;
+                    font-size: .8rem;
+
                     @if &{
                         strong{
-                            font-weight: 600;
+                            font-weight: bold;
                         }
                     }
                 }
@@ -143,6 +173,7 @@
                 }
             }
         }
+    
     }
 }
 
@@ -150,6 +181,7 @@
 .sidebar-min {
     @extend .sidebar;
     width: 0px !important;
+    transition: .3s;
 
     @if &{
         // Brand
@@ -166,10 +198,15 @@
 
         // Profile
         .sidebar-profile {
-            @include initProperties(relative, 70px, 50px);
+            position: relative;
+            height: 70px;
+            width: 50px;
+            transition: .3s;
 
             .image-status{
-                @include initProperties(absolute, 40px, 40px);
+                position: absolute;
+                height: 40px;
+                width: 40px;
             }
             @if & {
                 .user-name, .user-function{
@@ -180,12 +217,16 @@
 
         // Buttons
         .sidebar-buttons{
-            @include initProperties(relative, calc(100vh - 200px), 50px);
+            position: relative;
+            height: calc(100vh - 200px);
+            width: 50px;
 
             @if &{
                 .side-button{
-                    @include initProperties('', 45px, 48px!important);
+                    height: 45px;
+                    width: 48px;
                     justify-content: center;
+                    transition: .3s;
                 }
                 .button-name{
                     display: none;  
@@ -212,9 +253,35 @@
     }
 }
 
+.sidebar-brand, .menu-name, .sidebar-buttons, .sidebar-footer{
+    background: rgba(245, 246, 250, 0.1);
+}
+
 // State
 .is-open {
     width: 200px;
+}
+
+// Status Online
+.is-online{
+    position: absolute;
+    height: 9px;
+    width: 9px;
+    right: 2px;
+    bottom: 2px;
+    border-radius: 50px;
+    background: rgba(0, 184, 148, 1);
+}
+
+// Status Notification
+.notification{
+    position: absolute;
+    height: 10px;
+    width: 10px;
+    right: 7px;
+    bottom: 7px;
+    border-radius: 50px;
+    background: rgba(85, 239, 196, 1); 
 }
 
 // Breakpoints
@@ -227,7 +294,7 @@
 
         @if & {
             .sidebar-buttons {
-                @include calc(height, '100vh - 150px');
+                height: calc(100vh - 150px);
             }
         }
     }

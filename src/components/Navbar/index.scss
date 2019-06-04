@@ -1,0 +1,58 @@
+// Navbar
+.navbar {
+    position: fixed;
+    height: 50px;
+    width: 100%;
+    right: 0;
+    background: #f1f2f6;
+    transition: .3s;
+    box-shadow: -4px 5px 10px rgba(56, 56, 56, 0.2);
+    padding: 0;
+    flex-wrap: nowrap;
+    z-index: 100;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+// Navbar min
+.navbar-min {
+    @extend .navbar;
+}
+
+.fas {
+    color: rgba(56, 56, 56, 0.7);
+}
+
+// Status Online
+.is-online{
+    position: absolute;
+    height: 9px;
+    width: 9px;
+    right: 2px;
+    bottom: 2px;
+    border-radius: 50px;
+    background: rgba(0, 184, 148, 1);
+}
+
+// Status Notification
+.notification{
+    position: absolute;
+    height: 10px;
+    width: 10px;
+    right: 7px;
+    bottom: 7px;
+    border-radius: 50px;
+    background: rgba(85, 239, 196, 1); 
+}
+
+// Breakpoints
+@media only screen and (min-width: 576px){
+    .navbar {
+        width: calc(100% - 200px);
+        right: 0;
+    }
+    .navbar-min {
+        width: calc(100% - 50px);
+    }
+}

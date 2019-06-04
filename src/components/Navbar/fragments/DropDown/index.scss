@@ -1,0 +1,175 @@
+// Variables
+$roboto: 'Roboto', sans-serif;
+$quicksand: 'Quicksand', sans-serif;
+
+// DropDown navbar
+.navbar-dropdown {
+    position: absolute;
+    height: 300px;
+    width: 190px;
+    right: 0;
+    top: 0;
+    background: #f1f2f6;
+    box-shadow: -4px 5px 10px rgba(56, 56, 56, 0.2);
+    transition: .1s;
+
+    @if &{
+        .fa-sign-out-alt {
+            color: rgba(225, 112, 85, 1) !important;
+        }
+    }
+
+    @if & {
+        // Profile
+        .profile-details {
+            position: relative; 
+            height: 120px;  
+            width: 100%;
+        
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        
+            @if & {
+                .image-status {
+                    position: relative;
+                    height: 50px;
+                    width: 50px;
+        
+                    .user-image {
+                        height: 50px;
+                        width: 50px;
+                        border-radius: 50px;
+                        transition: .2s;
+                    }
+                }
+        
+                .user-name {
+                    font-family: $roboto;
+                    margin-top: 7px;
+                    color: rgba(56, 56, 56, 0.7);
+                    font-weight: bold;
+                    font-size: .9rem;
+                }
+        
+                .user-function {
+                    font-family: $roboto;
+                    color: rgba(56, 56, 56, 0.7);
+                    font-size: .72rem;
+                    margin-top: 5px;
+                }
+            }
+        }
+        
+        // Buttons
+        .buttons {
+            position: relative; 
+            height: 180px;  
+            width: 100%; 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            cursor: pointer;
+        
+            @if & {
+                .drop-button {
+                    height: 40px;
+                    width: 100%;
+                    transition: .3s;
+        
+                    display: flex;
+                    align-items: center;
+        
+                    &:hover {
+                        background: rgba(56, 56, 56, 0.1);
+                        transition: .3s; 
+                    }
+                }
+        
+                .fas {
+                    height: 20px;
+                    width: 20px;
+                    font-size: 1rem;
+                    padding: 0px 15px 0px 25px;
+        
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+        
+                .button-name {
+                    font-family: $roboto;
+                    color: rgba(56, 56, 56, 0.7);;
+                    font-size: .85rem;
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+}
+
+// Min
+.navbar-dropdown-min{
+    position: relative;
+    height: 50px;
+    width: 70px;
+    overflow: hidden;
+    transition: .1s;
+
+    @if &{
+        .profile-details{
+            position: relative;
+            height: 50px;
+            width: 50px;
+            
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: row;
+
+            @if &{
+                .image-status{
+                    position: relative;
+                    height: 35px;
+                    width: 35px;
+        
+                    @if &{
+                        .user-image{
+                            height: 35px;
+                            width: 35px;
+                            border-radius: 50px;
+                            transition: .2s;
+                        }
+
+                        .is-online{
+                            visibility: collapse;
+                        }
+                    }
+                }
+                
+                .user-name, .user-function{
+                    font-size: 0;
+                }
+            }
+        }
+
+        .buttons, hr{
+            display: none;
+        }
+    }
+}
+
+hr {
+    margin: 0;
+    border: solid 0.5px rgba(45, 52, 54, 1);
+    opacity: 0.1; 
+}
+
+.btn-up-down {
+    position: absolute;
+    right: 10px;
+    top: 17px;
+    cursor: pointer;
+    z-index: 1;
+}

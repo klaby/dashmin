@@ -1,1 +1,1 @@
-# minUI
+![DASHmin](https://github.com/hiukky/dashmin-reactjs/blob/master/dashmin.png)

@@ -1,0 +1,24 @@
+// Navbar Button
+.navbar-button {
+    height: 50px;
+    width: 50px;
+    transition: .3s;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar-button:hover {
+    background: rgba(47, 53, 66, .1);
+    transition: .3s;
+}
+
+// Navbar Buttons Group
+.button-group-navbar {
+    position: relative;
+    height: 50px;
+
+    display: flex;
+    flex-direction: row;
+}

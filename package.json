@@ -1,17 +1,38 @@
 {
-  "name": "bootstrap-sass",
+  "name": "dashmin",
   "version": "1.0.0",
-  "description": "Design structure to automate configuration of the development environment using bootstrap + custom styles",
-  "main": "index.js",
-  "repository": "https://github.com/hiukky/shoot-generator",
+  "description": "Dashboard minimalist",
+  "repository": "https://github.com/hiukky/dashmin-reactjs",
   "author": "H i u k k y",
   "license": "MIT",
+  "private": true,
   "dependencies": {
-    "bootstrap": "^4.3.1",
-    "browser-sync": "^2.26.5",
-    "gulp": "^4.0.1",
-    "gulp-sass": "^4.0.2",
-    "jquery": "^3.4.1",
-    "popper.js": "^1.15.0"
+    "node-sass": "^4.12.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-redux": "^7.0.3",
+    "react-scripts": "3.0.1",
+    "redux": "^4.0.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
