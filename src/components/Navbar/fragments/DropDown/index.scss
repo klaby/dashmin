@@ -1,12 +1,9 @@
-// Variables
-$roboto: 'Roboto', sans-serif;
-$quicksand: 'Quicksand', sans-serif;
+// Utils
+@import '../../../utils/dashmin.scss';
 
 // DropDown navbar
 .navbar-dropdown {
-    position: absolute;
-    height: 300px;
-    width: 190px;
+    @include initProperties(absolute, 300px, 190px);
     right: 0;
     top: 0;
     background: #f1f2f6;
@@ -22,41 +19,29 @@ $quicksand: 'Quicksand', sans-serif;
     @if & {
         // Profile
         .profile-details {
-            position: relative; 
-            height: 120px;  
-            width: 100%;
-        
-            display: flex;
+            @include initProperties(relative, 120px, 100%);
+            @extend %flex-center;
             flex-direction: column;
-            justify-content: center;
-            align-items: center;
         
             @if & {
                 .image-status {
-                    position: relative;
-                    height: 50px;
-                    width: 50px;
+                    @include initProperties(relative, 50px, 50px);
         
                     .user-image {
-                        height: 50px;
-                        width: 50px;
+                        @include initProperties(relative, 50px, 50px);
                         border-radius: 50px;
                         transition: .2s;
                     }
                 }
         
                 .user-name {
-                    font-family: $roboto;
+                    @include font($roboto, rgba(56, 56, 56, 0.7), .9rem);
                     margin-top: 7px;
-                    color: rgba(56, 56, 56, 0.7);
                     font-weight: bold;
-                    font-size: .9rem;
                 }
         
                 .user-function {
-                    font-family: $roboto;
-                    color: rgba(56, 56, 56, 0.7);
-                    font-size: .72rem;
+                    @include font($roboto, rgba(56, 56, 56, 0.7), .72rem);
                     margin-top: 5px;
                 }
             }
@@ -64,9 +49,7 @@ $quicksand: 'Quicksand', sans-serif;
         
         // Buttons
         .buttons {
-            position: relative; 
-            height: 180px;  
-            width: 100%; 
+            @include initProperties(relative, 180px, 100%);
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -74,10 +57,8 @@ $quicksand: 'Quicksand', sans-serif;
         
             @if & {
                 .drop-button {
-                    height: 40px;
-                    width: 100%;
+                    @include initProperties(relative, 40px, 100%);
                     transition: .3s;
-        
                     display: flex;
                     align-items: center;
         
@@ -88,21 +69,14 @@ $quicksand: 'Quicksand', sans-serif;
                 }
         
                 .fas {
-                    height: 20px;
-                    width: 20px;
+                    @include initProperties(relative, 20px, 20px);
+                    @extend %flex-center;
                     font-size: 1rem;
                     padding: 0px 15px 0px 25px;
-        
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
                 }
         
                 .button-name {
-                    font-family: $roboto;
-                    color: rgba(56, 56, 56, 0.7);;
-                    font-size: .85rem;
-                    font-weight: bold;
+                    @include font($roboto, rgba(56, 56, 56, 0.7), .85rem);
                 }
             }
         }
@@ -111,33 +85,23 @@ $quicksand: 'Quicksand', sans-serif;
 
 // Min
 .navbar-dropdown-min{
-    position: relative;
-    height: 50px;
-    width: 70px;
+    @include initProperties(relative, 50px, 70px);
     overflow: hidden;
     transition: .1s;
 
     @if &{
         .profile-details{
-            position: relative;
-            height: 50px;
-            width: 50px;
-            
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            @include initProperties(relative, 50px, 50px);
+            @extend %flex-center;
             flex-direction: row;
 
             @if &{
                 .image-status{
-                    position: relative;
-                    height: 35px;
-                    width: 35px;
+                    @include initProperties(relative, 35px, 35px);
         
                     @if &{
                         .user-image{
-                            height: 35px;
-                            width: 35px;
+                            @include initProperties(relative, 35px, 35px);
                             border-radius: 50px;
                             transition: .2s;
                         }

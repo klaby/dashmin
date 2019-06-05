@@ -1,13 +1,11 @@
 // React
-import React, {Component} from 'react';
+import React from 'react';
 
-// SidebarButton class
-export default class SidebarButton extends Component {
-    render(){
-        return(
-            <div className="side-button">
-                <i className={this.props.icon}></i><a className="button-name" href=""> {this.props.name} </a>
-            </div>
-        );
-    }
-}
+// SidebarButton
+const SidebarButton = (props) => (
+    <div className="side-button">
+        <i className={props.icon}></i><a className="button-name" href=""> {props.name} </a>
+    </div>
+);
+
+export default SidebarButton;

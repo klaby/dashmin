@@ -1,12 +1,13 @@
+// Utils
+@import '../utils/dashmin.scss';
+
 // Navbar
 .navbar {
-    position: fixed;
-    height: 50px;
-    width: 100%;
-    right: 0;
+    @include initProperties(fixed, 50px, 100%);
     background: #f1f2f6;
-    transition: .3s;
     box-shadow: -4px 5px 10px rgba(56, 56, 56, 0.2);
+    right: 0;
+    transition: .3s;
     padding: 0;
     flex-wrap: nowrap;
     z-index: 100;
@@ -26,9 +27,7 @@
 
 // Status Online
 .is-online{
-    position: absolute;
-    height: 9px;
-    width: 9px;
+    @include initProperties(absolute, 9px, 9px);
     right: 2px;
     bottom: 2px;
     border-radius: 50px;
@@ -37,9 +36,7 @@
 
 // Status Notification
 .notification{
-    position: absolute;
-    height: 10px;
-    width: 10px;
+    @include initProperties(absolute, 10px, 10px);
     right: 7px;
     bottom: 7px;
     border-radius: 50px;

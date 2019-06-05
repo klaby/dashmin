@@ -1,6 +1,7 @@
-// Base
-$roboto: 'Roboto', sans-serif;
+// Utils
+@import '../utils/dashmin.scss';
 
+// Base
 body {
     font-family: $roboto;
 }
@@ -11,9 +12,7 @@ label {
 
 // Content
 .content {
-    height: 100%;
-    width: 100%;
-    position: relative;
+    @include initProperties(fixed, 100%, 100%);
     top: 70px;
     padding: 20px;
     transition: .3s;
@@ -26,9 +25,7 @@ label {
         left: 200px;
     }
     .content-min {
-        height: 100%;
-        width: calc(100% - 50px);
-        position: relative;
+        @include initProperties(fixed, 100%, calc(100% - 50px));
         top: 70px;
         left: 50px;
         padding: 20px;

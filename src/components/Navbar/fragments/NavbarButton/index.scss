@@ -1,12 +1,11 @@
+// Utils
+@import '../../../utils/dashmin.scss';
+
 // Navbar Button
 .navbar-button {
-    height: 50px;
-    width: 50px;
+    @include initProperties(relative, 50px, 50px);
+    @extend %flex-center;
     transition: .3s;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .navbar-button:hover {
@@ -18,7 +17,6 @@
 .button-group-navbar {
     position: relative;
     height: 50px;
-
     display: flex;
     flex-direction: row;
 }

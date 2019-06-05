@@ -1,12 +1,9 @@
-// Variables
-$roboto: 'Roboto', sans-serif;
-$quicksand: 'Quicksand', sans-serif;
+// Utils
+@import '../utils/dashmin.scss';
 
 // Sidebar
 .sidebar {
-    position: fixed;
-    height: calc(100vh - 50px);
-    width: 0;
+    @include initProperties(fixed, calc(100vh -50px), 0);
     top: 50px;
     background: rgba(62, 81, 117, 1);
     transition: .3s;
@@ -16,20 +13,13 @@ $quicksand: 'Quicksand', sans-serif;
 
     @if & {
         .sidebar-brand {
-            position: relative;
-            height: 50px;
-            width: 200px;
+            @include initProperties(relative, 50px, 200px);
+            @extend %flex-center;
             transition: .3s;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
 
             @if & {
                 .link-brand {
-                    font-family: $quicksand;
-                    color: #FFF;
-                    font-size: 1.1rem;
+                    @include font($quicksand, #fff, 1.1rem);
 
                     strong {
                         font-weight: bold;
@@ -46,19 +36,12 @@ $quicksand: 'Quicksand', sans-serif;
         }
 
         .sidebar-profile {
-            position: relative;
-            height: 70px;
-            width: 200px;
-
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            @include initProperties(relative, 70px, 200px);
+            @extend %flex-center;
 
             @if & {
                 .image-status {
-                    position: relative;
-                    height: 40px;
-                    width: 40px;
+                    @include initProperties(relative, 40px, 40px);
                     transition: .3s;
 
                     @if & {
@@ -72,9 +55,7 @@ $quicksand: 'Quicksand', sans-serif;
                 }
 
                 .user-name {
-                    font-family: $roboto;
-                    color: #fff;
-                    font-size: .8rem;
+                    @include font($roboto, #fff, .8rem);
                     margin-left: 10px;
                 }
                 
@@ -82,9 +63,7 @@ $quicksand: 'Quicksand', sans-serif;
         }
 
         .sidebar-buttons {
-            position: relative;
-            height: calc(100vh - 200px);
-            width: 200px;
+            @include initProperties(relative, calc(100vh - 200px), 200px);
             overflow: auto;
             transition: .3s;
             cursor: pointer;
@@ -94,9 +73,28 @@ $quicksand: 'Quicksand', sans-serif;
             }
 
             @if & {
+
+                .section-title {
+                    @include font($roboto, rgba(255, 255, 255, 0.8), .7rem);
+                    @extend %flex-center;
+                    height: 30px;
+                    padding-left: 10px;
+
+                    @if & {
+                        hr {
+                            width: 100%;
+                            border: .5px solid #fff;
+                            margin-left: 5px;
+                        }
+                    }
+                }
+
+                .hide {
+                    display: none;
+                }
+
                 .side-button {
-                    height: 45px;
-                    width: 198px;
+                    @include initProperties(relative, 45px, 198px);
                     display: flex;
                     align-items: center;
                     border: 2px solid transparent;
@@ -118,23 +116,17 @@ $quicksand: 'Quicksand', sans-serif;
 
                     @if &{
                         .fas{
+                            @include initProperties(relative, 20px, 20px);
+                            @extend %flex-center;
                             color: #f1f2f6!important;
                             padding: 0px 20px 0px 30px;
                             font-size: 1rem;
-                            width: 20px;
-                            height: 20px;
-
-                            display: flex;
-                            justify-content: center;
-                            align-items: center;
                         }
                     }
 
                     @if &{
                         .button-name{
-                            font-family: $quicksand;
-                            color: #fff;
-                            font-size: .8rem;
+                            @include font($quicksand, #fff, .8rem);
                         }
                     }
                 }
@@ -142,22 +134,14 @@ $quicksand: 'Quicksand', sans-serif;
         }
 
         .sidebar-footer{
-            position: relative;
-            height: 30px;
-            width: 200px;
+            @include initProperties(relative, 30px, 200px);
+            @extend %flex-center;
             transition: .3s;
-
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        
             bottom: 0;
         
             @if &{
                 .footer-org{
-                    font-family: $quicksand;
-                    color: #fff;
-                    font-size: .8rem;
+                    @include font($quicksand, #fff, .8rem);
 
                     @if &{
                         strong{
@@ -198,16 +182,13 @@ $quicksand: 'Quicksand', sans-serif;
 
         // Profile
         .sidebar-profile {
-            position: relative;
-            height: 70px;
-            width: 50px;
+            @include initProperties(relative, 70px, 50px);
             transition: .3s;
 
             .image-status{
-                position: absolute;
-                height: 40px;
-                width: 40px;
+                @include initProperties(absolute, 40px, 40px);
             }
+            
             @if & {
                 .user-name, .user-function{
                     font-size: 0;
@@ -217,14 +198,11 @@ $quicksand: 'Quicksand', sans-serif;
 
         // Buttons
         .sidebar-buttons{
-            position: relative;
-            height: calc(100vh - 200px);
-            width: 50px;
+            @include initProperties(relative, calc(100vh - 200px), 50px);
 
             @if &{
                 .side-button{
-                    height: 45px;
-                    width: 48px;
+                    @include initProperties(relative, 45px, 45px);
                     justify-content: center;
                     transition: .3s;
                 }
@@ -253,6 +231,7 @@ $quicksand: 'Quicksand', sans-serif;
     }
 }
 
+// Opacity default
 .sidebar-brand, .menu-name, .sidebar-buttons, .sidebar-footer{
     background: rgba(245, 246, 250, 0.1);
 }
@@ -264,32 +243,18 @@ $quicksand: 'Quicksand', sans-serif;
 
 // Status Online
 .is-online{
-    position: absolute;
-    height: 9px;
-    width: 9px;
+    @include initProperties(absolute, 9px, 9px);
     right: 2px;
     bottom: 2px;
     border-radius: 50px;
     background: rgba(0, 184, 148, 1);
 }
 
-// Status Notification
-.notification{
-    position: absolute;
-    height: 10px;
-    width: 10px;
-    right: 7px;
-    bottom: 7px;
-    border-radius: 50px;
-    background: rgba(85, 239, 196, 1); 
-}
-
 // Breakpoints
 @media only screen and (min-width: 576px){
     // Sidebar
     .sidebar {
-        height: 100vh;
-        width: 200px;
+        @include initProperties(fixed, 100vh, 200px);
         top: 0;
 
         @if & {

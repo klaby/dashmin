@@ -1,19 +1,15 @@
 // React
-import React, {Component} from 'react';
+import React from 'react';
 
 // Style
 import './index.scss';
 
 // Navbar Button
-export default class Button extends Component {
+const NavbarButton = (props) => (
+    <div className="navbar-button" onClick={props.event}>
+        <i className={props.icon}></i>
+        <span className={props.class}></span>
+    </div>
+);
 
-    // Render
-    render(){
-        return (
-            <div className="navbar-button" onClick={this.props.event}>
-                <i className={this.props.icon}></i>
-                <span className={this.props.class}></span>
-            </div>
-        );
-    }
-}
+export default NavbarButton;

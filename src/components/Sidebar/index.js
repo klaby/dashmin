@@ -2,14 +2,15 @@
 import React from 'react';
 
 // Styles
-import './index.scss'
+import './index.scss';
 
 // Components
-import SidebarButton from './fragments/SidebarButton'
+import SidebarButton from './fragments/SidebarButton';
+import SidebarSection from './fragments/SidebarSection';
 
 // Sidebar
 const Sidebar = ( {classes, user} ) => (
-    <div className={classes.sidebar}>
+    <div className={classes.sidebar.main}>
         {/* Brand */}
         <div className="sidebar-brand">
             <h1>
@@ -28,9 +29,22 @@ const Sidebar = ( {classes, user} ) => (
         </div>
 
         {/* Buttons */}
+
         <div className="sidebar-buttons">
-            <SidebarButton icon="fas fa-tachometer-alt" name="Dashboard" />
-            <SidebarButton icon="fas fa-users" name="Users" />
+
+            {/* Home */}
+            <SidebarSection title={'HOME'} class={classes.sidebar.sectionTitle}>
+                <SidebarButton icon="fas fa-tachometer-alt" name="Dashboard" />
+            </SidebarSection>
+
+            {/* Admin */}
+            <SidebarSection title={'ADMIN'} class={classes.sidebar.sectionTitle}>
+                <SidebarButton icon="fas fa-users" name="Users" />
+                <SidebarButton icon="fas fa-file-invoice-dollar" name="Financial" />
+                <SidebarButton icon="fas fa-cart-plus" name="Products" />
+                <SidebarButton icon="fas fa-chart-pie" name="Reports" />
+            </SidebarSection>
+
         </div>
 
         {/* Footer */}
