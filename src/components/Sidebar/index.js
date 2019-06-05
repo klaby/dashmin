@@ -34,15 +34,15 @@ const Sidebar = ( {classes, user} ) => (
 
             {/* Home */}
             <SidebarSection title={'HOME'} class={classes.sidebar.sectionTitle}>
-                <SidebarButton icon="fas fa-tachometer-alt" name="Dashboard" />
+                <SidebarButton icon="fas fa-tachometer-alt" name="Dashboard" route="/" />
             </SidebarSection>
 
             {/* Admin */}
             <SidebarSection title={'ADMIN'} class={classes.sidebar.sectionTitle}>
-                <SidebarButton icon="fas fa-users" name="Users" />
-                <SidebarButton icon="fas fa-file-invoice-dollar" name="Financial" />
-                <SidebarButton icon="fas fa-cart-plus" name="Products" />
-                <SidebarButton icon="fas fa-chart-pie" name="Reports" />
+                <SidebarButton icon="fas fa-users" name="Users" route="/users" />
+                <SidebarButton icon="fas fa-file-invoice-dollar" name="Financial" route="/financial" />
+                <SidebarButton icon="fas fa-cart-plus" name="Products" route="/products"/>
+                <SidebarButton icon="fas fa-chart-pie" name="Reports" route="/reports" />
             </SidebarSection>
 
         </div>

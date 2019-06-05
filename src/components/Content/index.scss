@@ -12,7 +12,7 @@ label {
 
 // Content
 .content {
-    @include initProperties(fixed, 100%, 100%);
+    @include initProperties(relative, 100%, 100%);
     top: 70px;
     padding: 20px;
     transition: .3s;
@@ -25,7 +25,7 @@ label {
         left: 200px;
     }
     .content-min {
-        @include initProperties(fixed, 100%, calc(100% - 50px));
+        @include initProperties(relative, 100%, calc(100% - 50px));
         top: 70px;
         left: 50px;
         padding: 20px;

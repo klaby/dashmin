@@ -1,17 +1,17 @@
 // Imports
 import React from 'react';
-import {connect} from 'react-redux';
 
 // Styles
 import './index.scss';
 
+// Pages
+import Routes from '../../routes';
+
 // Content
 const Content = ({classes}) => (
-    <div className={classes.content}>
-
+    <div className={classes.content}> 
+        <Routes />             {/* Routes */} 
     </div>
 );
 
-export default connect(state => ({
-    classes: state.dashboard.classes
-}))(Content);
+export default Content;
