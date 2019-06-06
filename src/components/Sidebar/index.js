@@ -11,35 +11,35 @@ import SidebarSection from './fragments/SidebarSection';
 
 // Sidebar
 const Sidebar = ( {classes, user} ) => (
-    <div className={classes.sidebar.main}>
+    <div className={classes.sidebar}>
         {/* Brand */}
-        <div className="sidebar-brand">
+        <div className="sidebar__brand">
             <h1>
-                <Link className="link-brand lg" to=""><strong>DASH</strong>min</Link>
-                <Link className="link-brand xs" to=""><strong>d</strong>min</Link>
+                <Link className="sidebar__brand-link lg" to=""><strong>DASH</strong>min</Link>
+                <Link className="sidebar__brand-link xs" to=""><strong>d</strong>min</Link>
             </h1>
         </div>
 
         {/* Profile */}
-        <div className="sidebar-profile">
-            <div className="image-status">
-                <img className="img-profile" src={user.avatar} alt=""></img>
+        <div className="sidebar__profile">
+            <div className="sidebar__profile__avatar-status">
+                <img className="sidebar__profile__avatar-status__avatar" src={user.avatar} alt=""></img>
                 <span className="is-online"></span>
             </div>
-            <span className="user-name"> {user.name} </span>
+            <span className="sidebar__profile__name"> {user.name} </span>
         </div>
 
         {/* Buttons */}
 
-        <div className="sidebar-buttons">
+        <div className="sidebar__buttons">
 
             {/* Home */}
-            <SidebarSection title={'HOME'} class={classes.sidebar.sectionTitle}>
+            <SidebarSection title={'HOME'}>
                 <SidebarButton icon="fas fa-tachometer-alt" name="Dashboard" route="/" />
             </SidebarSection>
 
             {/* Admin */}
-            <SidebarSection title={'ADMIN'} class={classes.sidebar.sectionTitle}>
+            <SidebarSection title={'ADMIN'}>
                 <SidebarButton icon="fas fa-users" name="Users" route="/users" />
                 <SidebarButton icon="fas fa-file-invoice-dollar" name="Financial" route="/financial" />
                 <SidebarButton icon="fas fa-cart-plus" name="Products" route="/products"/>
@@ -49,9 +49,9 @@ const Sidebar = ( {classes, user} ) => (
         </div>
 
         {/* Footer */}
-        <div className="sidebar-footer">
-            <p className="footer-org lg"><strong>DASH</strong>min</p>
-            <p className="footer-org xs"><strong>d</strong>min</p>
+        <div className="sidebar__footer">
+            <p className="sidebar__footer__org lg"><strong>DASH</strong>min</p>
+            <p className="sidebar__footer__org xs"><strong>d</strong>min</p>
         </div>
         
     </div>

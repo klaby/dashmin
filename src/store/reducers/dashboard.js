@@ -2,10 +2,7 @@
 const INITIAL_STATE = {
     // classes
     classes: {
-        sidebar: {
-            main: 'sidebar',
-            sectionTitle: 'section-title'
-        },
+        sidebar: 'sidebar',
         navbar: 'navbar',
         content: 'content' 
     }
@@ -18,30 +15,24 @@ export default function dashboard(state = INITIAL_STATE, action){
         // TOGGLE_SIDEBAR
         case 'TOGGLE_SIDEBAR':
 
-            if(window.innerWidth < 576 && action.classes.sidebar.main === 'sidebar'){
+            if(window.innerWidth < 576 && action.classes.sidebar === 'sidebar'){
                 return {
                     ...state,
                     classes: {
-                        sidebar: {
-                            main: 'sidebar is-open',
-                            sectionTitle: 'section-title'
-                        },
+                        sidebar: 'sidebar--mobile',
                         navbar: 'navbar',
                         content: 'content' 
                     }
                 }
             }
     
-            else if (window.innerWidth > 576 && action.classes.sidebar.main === 'sidebar'){
+            else if (window.innerWidth > 576 && action.classes.sidebar === 'sidebar'){
                 return {
                     ...state,
                     classes: {
-                        sidebar: {
-                            main: 'sidebar-min',
-                            sectionTitle: 'section-title hide'
-                        },
-                        navbar: 'navbar-min',
-                        content: 'content-min' 
+                        sidebar: 'sidebar--min',
+                        navbar: 'navbar--min',
+                        content: 'content--min' 
                     }
                 }
             }
@@ -50,10 +41,7 @@ export default function dashboard(state = INITIAL_STATE, action){
                 return {
                     ...state,
                     classes: {
-                        sidebar: {
-                            main: 'sidebar',
-                            sectionTitle: 'section-title'
-                        },
+                        sidebar: 'sidebar',
                         navbar: 'navbar',
                         content: 'content' 
                     }

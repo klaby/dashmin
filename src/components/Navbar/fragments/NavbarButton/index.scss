@@ -2,19 +2,19 @@
 @import '../../../utils/dashmin.scss';
 
 // Navbar Button
-.navbar-button {
+.btn {
     @include initProperties(relative, 50px, 50px);
     @extend %flex-center;
     transition: .3s;
+
+    &:hover {
+        background: rgba(47, 53, 66, .1);
+        transition: .3s;
+    }
 }
 
-.navbar-button:hover {
-    background: rgba(47, 53, 66, .1);
-    transition: .3s;
-}
-
-// Navbar Buttons Group
-.button-group-navbar {
+// Navbar Button Group
+.btn-group {
     position: relative;
     height: 50px;
     display: flex;

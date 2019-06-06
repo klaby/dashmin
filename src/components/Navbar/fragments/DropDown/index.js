@@ -16,17 +16,17 @@ export default class DropDown extends Component {
 
             // State
             this.state = {
-                dropClass: 'navbar-dropdown-min',
+                dropClass: 'dropdown--min',
                 toggleIcon: 'btn-up-down fas fa-caret-down'
             }
 
             // Paths
             this.paths = {
                 dropMin: () => {
-                    this.setState({dropClass: 'navbar-dropdown-min', toggleIcon: 'btn-up-down fas fa-caret-down'})
+                    this.setState({dropClass: 'dropdown--min', toggleIcon: 'btn-up-down fas fa-caret-down'})
                 },
                 dropMax: () => {
-                    this.setState({dropClass: 'navbar-dropdown', toggleIcon: 'btn-up-down fas fa-caret-up'})
+                    this.setState({dropClass: 'dropdown', toggleIcon: 'btn-up-down fas fa-caret-up'})
                 }
             }
 
@@ -37,7 +37,7 @@ export default class DropDown extends Component {
 
         //Change DropDown
         changeDrop(){
-            if(this.state.dropClass === 'navbar-dropdown-min') this.paths.dropMax();
+            if(this.state.dropClass === 'dropdown--min') this.paths.dropMax();
             else this.paths.dropMin();
         }
 
@@ -57,18 +57,16 @@ export default class DropDown extends Component {
                     <div className={this.state.toggleIcon} onClick={this.changeDrop}></div>
                     
                     {/* Profile */}
-                    <div className="profile-details">
-                        <div className="image-status">
-                            <img className="user-image" src={this.props.profileImage} alt=""/>
-                        </div>
-                        <div className="user-name"> {this.props.profileName} </div>
-                        <div className="user-function"> {this.props.profileFunction} </div>
+                    <div className="dropdown__profile">
+                        <img className="dropdown__profile__avatar" src={this.props.profileImage} alt=""/>
+                        <div className="dropdown__profile__name"> {this.props.profileName} </div>
+                        <div className="dropdown__profile__function"> {this.props.profileFunction} </div>
                     </div>
     
                     <hr/>
     
                     {/* Buttons */}
-                    <div className="buttons">
+                    <div className="dropdown__buttons">
                         <DropButton route="" icon="fas fa-tint" name="Customization" />
                         <DropButton route="" icon="fas fa-cog" name="Settings" />
                         <DropButton route="" icon="fas fa-user-alt" name="Profile" />

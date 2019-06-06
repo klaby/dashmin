@@ -7,8 +7,8 @@ import './index.scss';
 
 // Dropdown Button
 const DropButton = (props) => (
-    <Link className="drop-button" to={props.route}>
-        <i className={props.icon}></i><span className="button-name"> {props.name} </span>
+    <Link className="dropdown__buttons__btn" to={props.route}>
+        <i className={props.icon}></i><span className="dropdown__buttons__btn-name"> {props.name} </span>
     </Link> 
 );
 

@@ -6,10 +6,6 @@ body {
     font-family: $roboto;
 }
 
-label {
-    margin-bottom: 10px;
-}
-
 // Content
 .content {
     @include initProperties(relative, 100%, 100%);
@@ -18,17 +14,19 @@ label {
     transition: .3s;
 }
 
+// Content min
+.content--min {
+    @extend .content;
+}
+
 // Breakpoints
 @media only screen and (min-width: 576px){
     .content {
         width: calc(100% - 200px);
         left: 200px;
     }
-    .content-min {
-        @include initProperties(relative, 100%, calc(100% - 50px));
-        top: 70px;
+    .content--min {
+        width: calc(100% - 50px);
         left: 50px;
-        padding: 20px;
-        transition: .3s;
     }
 }

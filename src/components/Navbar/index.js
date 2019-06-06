@@ -12,10 +12,10 @@ import NavbarButton from './fragments/NavbarButton';
 const Navbar = ({classes, user, handlerSidebar}) => (
     <div className={classes.navbar}>
         {/* Left */}
-        <div className="button-group-navbar">
+        <div className="btn-group">
             <NavbarButton icon={'fas fa-bars'} event={() => handlerSidebar(classes)} />
             <NavbarButton icon={'fas fa-bell'} />
-            <NavbarButton icon={'fas fa-envelope'} class={'notification'}/>
+            <NavbarButton icon={'fas fa-envelope'} class={'is-notification'}/>
         </div>
 
         {/* Right */}

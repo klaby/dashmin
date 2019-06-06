@@ -17,30 +17,12 @@
 }
 
 // Navbar min
-.navbar-min {
+.navbar--min {
     @extend .navbar;
 }
 
 .fas {
     color: rgba(56, 56, 56, 0.7);
-}
-
-// Status Online
-.is-online{
-    @include initProperties(absolute, 9px, 9px);
-    right: 2px;
-    bottom: 2px;
-    border-radius: 50px;
-    background: rgba(0, 184, 148, 1);
-}
-
-// Status Notification
-.notification{
-    @include initProperties(absolute, 10px, 10px);
-    right: 7px;
-    bottom: 7px;
-    border-radius: 50px;
-    background: rgba(85, 239, 196, 1); 
 }
 
 // Breakpoints
@@ -49,7 +31,7 @@
         width: calc(100% - 200px);
         right: 0;
     }
-    .navbar-min {
+    .navbar--min {
         width: calc(100% - 50px);
     }
 }

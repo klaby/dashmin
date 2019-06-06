@@ -6,7 +6,7 @@ import './index.scss';
 
 // Navbar Button
 const NavbarButton = (props) => (
-    <div className="navbar-button" onClick={props.event}>
+    <div className="btn" onClick={props.event}>
         <i className={props.icon}></i>
         <span className={props.class}></span>
     </div>
