@@ -6,7 +6,7 @@ import {connect} from 'react-redux';
 import SidebarActions from '../store/actions/sidebar';
 
 // Components
-import Sidebar from '../components/Sidebar';
+import Sidebar from '../components/main/Sidebar';
 
 // State and Actions
 const mapStateToProps = state => ({

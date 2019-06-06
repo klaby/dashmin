@@ -3,7 +3,7 @@ import React from 'react';
 import {Route, Switch} from 'react-router-dom';
 
 // Pages
-import pages from './pages';
+import pages from '../pages';
 
 // Routes
 const Routes = () => (

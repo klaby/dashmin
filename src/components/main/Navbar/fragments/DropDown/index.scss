@@ -3,7 +3,7 @@
 
 // DropDown navbar
 .dropdown {
-    @include initProperties(absolute, 300px, 190px);
+    @include initProperties(absolute, 300px, 210px);
     right: 0;
     top: 0;
     background: #f1f2f6;
@@ -19,7 +19,7 @@
         &__avatar {
             @include initProperties(relative, 50px, 50px);
             border-radius: 50px;
-            transition: .2s;
+            cursor: pointer;
         }
 
         &__name {
@@ -74,9 +74,10 @@
 // Dropdown min
 .dropdown--min {
     @extend .dropdown;
-    @include initProperties(relative, 50px, 70px);
+    @include initProperties(relative, 50px, 50px);
     overflow: hidden;
     box-shadow: none;
+    right: 10px;
 
     // Profile
     .dropdown__profile {
@@ -87,7 +88,6 @@
         &__avatar {
             @include initProperties(relative, 35px, 35px);
             border-radius: 50px;
-            transition: .2s;
         }
         &__name, &__function {
             font-size: 0;
@@ -105,12 +105,4 @@ hr {
     margin: 0;
     border: solid 0.5px rgba(45, 52, 54, 1);
     opacity: 0.1; 
-}
-
-.btn-up-down {
-    position: absolute;
-    right: 10px;
-    top: 17px;
-    cursor: pointer;
-    z-index: 1;
 }

@@ -2,7 +2,7 @@
 import {connect} from 'react-redux';
 
 // Component
-import Content from '../components/Content';
+import Content from '../components/main/Content';
 
 // State and props
 const mapStateToProps = state => ({

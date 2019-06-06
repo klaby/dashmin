@@ -5,7 +5,7 @@ import React from 'react';
 import './index.scss';
 
 // Pages
-import Routes from '../../routes';
+import Routes from '../../../routes';
 
 // Content
 const Content = ({classes}) => (

@@ -6,7 +6,7 @@ import {connect} from 'react-redux';
 import NavbarActions from '../store/actions/navbar';
 
 // Component
-import Navbar from '../components/Navbar';
+import Navbar from '../components/main/Navbar';
 
 // State e Actions
 const mapStateToProps = state => ({

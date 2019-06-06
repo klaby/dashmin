@@ -16,33 +16,28 @@ export default class DropDown extends Component {
 
             // State
             this.state = {
-                dropClass: 'dropdown--min',
-                toggleIcon: 'btn-up-down fas fa-caret-down'
+                dropdown: 'dropdown--min'
             }
 
             // Paths
             this.paths = {
-                dropMin: () => {
-                    this.setState({dropClass: 'dropdown--min', toggleIcon: 'btn-up-down fas fa-caret-down'})
-                },
-                dropMax: () => {
-                    this.setState({dropClass: 'dropdown', toggleIcon: 'btn-up-down fas fa-caret-up'})
-                }
+                dropMin: () => {this.setState({dropdown: 'dropdown--min'})},
+                dropMax: () => {this.setState({dropdown: 'dropdown'})}
             }
 
             // Methods
-            this.changeDrop = this.changeDrop.bind(this);
-            this.handleClickOutside(this);
+            this.handlerDropdown = this.handlerDropdown.bind(this);
+            this.handlerClickOutside(this);
         }
 
         //Change DropDown
-        changeDrop(){
-            if(this.state.dropClass === 'dropdown--min') this.paths.dropMax();
+        handlerDropdown(){
+            if(this.state.dropdown === 'dropdown--min') this.paths.dropMax();
             else this.paths.dropMin();
         }
 
         // Hide Drop
-        handleClickOutside(){
+        handlerClickOutside(){
             window.addEventListener('click', e => {
                 if(this.setWrapperRef && !this.setWrapperRef.contains(e.target)) this.paths.dropMin();
             });
@@ -51,14 +46,11 @@ export default class DropDown extends Component {
         // render
         render(){
             return (
-                <div className={this.state.dropClass} ref={(node) => this.setWrapperRef = node}>
-                    
-                    {/* Toggle */}
-                    <div className={this.state.toggleIcon} onClick={this.changeDrop}></div>
+                <div className={this.state.dropdown} ref={(node) => this.setWrapperRef = node}>
                     
                     {/* Profile */}
                     <div className="dropdown__profile">
-                        <img className="dropdown__profile__avatar" src={this.props.profileImage} alt=""/>
+                        <img className="dropdown__profile__avatar" src={this.props.profileImage} alt="" onClick={this.handlerDropdown}/>
                         <div className="dropdown__profile__name"> {this.props.profileName} </div>
                         <div className="dropdown__profile__function"> {this.props.profileFunction} </div>
                     </div>
