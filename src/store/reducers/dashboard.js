@@ -13,8 +13,6 @@ const INITIAL_STATE = {
 
 // Reducer
 export default function dashboard(state = INITIAL_STATE, action){
-    console.log(action )
-
     switch(action.type) {
 
         // TOGGLE_SIDEBAR
@@ -22,7 +20,7 @@ export default function dashboard(state = INITIAL_STATE, action){
 
             if(window.innerWidth < 576 && action.classes.sidebar.main === 'sidebar'){
                 return {
-                    ... state,
+                    ...state,
                     classes: {
                         sidebar: {
                             main: 'sidebar is-open',
@@ -36,7 +34,7 @@ export default function dashboard(state = INITIAL_STATE, action){
     
             else if (window.innerWidth > 576 && action.classes.sidebar.main === 'sidebar'){
                 return {
-                    ... state,
+                    ...state,
                     classes: {
                         sidebar: {
                             main: 'sidebar-min',
@@ -50,7 +48,7 @@ export default function dashboard(state = INITIAL_STATE, action){
     
             else {
                 return {
-                    ... state,
+                    ...state,
                     classes: {
                         sidebar: {
                             main: 'sidebar',
@@ -61,11 +59,8 @@ export default function dashboard(state = INITIAL_STATE, action){
                     }
                 }
             }
-        break;
-
+            
         default:
             return state;
-        break;
     }
-
 }

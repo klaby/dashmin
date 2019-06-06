@@ -1,5 +1,6 @@
 // Imports
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 // Styles
 import './index.scss';
@@ -14,8 +15,8 @@ const Sidebar = ( {classes, user} ) => (
         {/* Brand */}
         <div className="sidebar-brand">
             <h1>
-                <a className="link-brand lg" href=""><strong>DASH</strong>min</a>
-                <a className="link-brand xs" href=""><strong>d</strong>min</a>
+                <Link className="link-brand lg" to=""><strong>DASH</strong>min</Link>
+                <Link className="link-brand xs" to=""><strong>d</strong>min</Link>
             </h1>
         </div>
 

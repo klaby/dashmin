@@ -49,7 +49,6 @@
                             height: 40px;
                             width: 40px;
                             border-radius: 50px;
-                            
                         }
                     }
                 }
@@ -190,7 +189,7 @@
             }
             
             @if & {
-                .user-name, .user-function{
+                .user-name{
                     font-size: 0;
                 }
             }
@@ -232,7 +231,7 @@
 }
 
 // Opacity default
-.sidebar-brand, .menu-name, .sidebar-buttons, .sidebar-footer{
+.sidebar-brand, .sidebar-buttons, .sidebar-footer{
     background: rgba(245, 246, 250, 0.1);
 }
 

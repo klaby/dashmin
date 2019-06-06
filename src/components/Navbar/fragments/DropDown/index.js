@@ -4,6 +4,9 @@ import React, {Component} from 'react';
 // Style
 import './index.scss';
 
+// Components
+import DropButton from './DropButton';
+
 // NavbarDropDown class
 export default class DropDown extends Component {
 
@@ -65,20 +68,12 @@ export default class DropDown extends Component {
                     <hr/>
     
                     {/* Buttons */}
-                    <ul className="buttons">
-                        <li className="drop-button">
-                            <i className="fas fa-tint"></i><a className="button-name" href="#"> Customization </a>
-                        </li>  
-                        <li className="drop-button">
-                            <i className="fas fa-cog"></i><a className="button-name" href="#"> Settings </a>
-                        </li> 
-                        <li className="drop-button">
-                            <i className="fas fa-user-alt"></i><a className="button-name" href="#"> Profile </a>
-                        </li>  
-                        <li className="drop-button">
-                            <i className="fas fa-sign-out-alt"></i><a className="button-name" href="#"> Logout </a>
-                        </li> 
-                    </ul>
+                    <div className="buttons">
+                        <DropButton route="" icon="fas fa-tint" name="Customization" />
+                        <DropButton route="" icon="fas fa-cog" name="Settings" />
+                        <DropButton route="" icon="fas fa-user-alt" name="Profile" />
+                        <DropButton route="" icon="fas fa-sign-out-alt" name="Logout" />
+                    </div>
     
                 </div>
             );
