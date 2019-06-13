@@ -3,10 +3,10 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 
 // Actions
-import NavbarActions from '../store/actions/navbar';
+import {Creators as NavbarActions} from '../store/ducks/dashboard';
 
 // Component
-import Navbar from '../components/main/Navbar';
+import Navbar from '../components/Navbar';
 
 // State e Actions
 const mapStateToProps = state => ({

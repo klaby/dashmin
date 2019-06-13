@@ -3,10 +3,10 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 
 // Actions
-import SidebarActions from '../store/actions/sidebar';
+import {Creators as SidebarActions } from '../store/ducks/dashboard';
 
 // Components
-import Sidebar from '../components/main/Sidebar';
+import Sidebar from '../components/Sidebar';
 
 // State and Actions
 const mapStateToProps = state => ({

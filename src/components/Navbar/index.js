@@ -5,7 +5,7 @@ import React from 'react';
 import './index.scss';
 
 // Componenets
-import DropDown from './fragments/DropDown/';
+import DropDown from './fragments/DropDown';
 import NavbarButton from './fragments/NavbarButton';
 
 // Navbar

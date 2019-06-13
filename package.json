@@ -1,8 +1,8 @@
 {
-  "name": "dashmin",
+  "name": "dashmin-react",
   "version": "1.0.0",
   "description": "Dashboard minimalist",
-  "repository": "https://github.com/hiukky/dashmin-reactjs",
+  "repository": "https://github.com/hiukky/dashmin-react",
   "author": "H i u k k y",
   "license": "MIT",
   "private": true,

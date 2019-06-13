@@ -2,7 +2,7 @@
 import {createStore} from 'redux';
 
 // Reducers
-import rootReducers from './reducers';
+import rootReducers from './ducks';
 
 // Store
 const store = createStore(rootReducers);

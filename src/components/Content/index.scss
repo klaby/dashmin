@@ -8,10 +8,11 @@ body {
 
 // Content
 .content {
-    @include initProperties(relative, 100%, 100%);
-    top: 70px;
-    padding: 20px;
+    @include initProperties(relative, calc(100vh - 50px), 100%);
+    top: 50px;
+    padding: 20px 0px 20px 0px;
     transition: .3s;
+    background: rgba(241, 242, 246, 0.4);
 }
 
 // Content min
@@ -24,9 +25,11 @@ body {
     .content {
         width: calc(100% - 200px);
         left: 200px;
+        padding: 20px;
     }
     .content--min {
         width: calc(100% - 50px);
         left: 50px;
+        padding: 20px;
     }
 }

@@ -1,3 +1,8 @@
+// Types
+export const Types = {
+    TOGGLE_SIDEBAR: 'TOGGLE_SIDEBAR'
+}
+
 // Initial State
 const INITIAL_STATE = {
     // classes
@@ -9,7 +14,7 @@ export default function dashboard(state = INITIAL_STATE, action){
     switch(action.type) {
 
         // TOGGLE_SIDEBAR
-        case 'TOGGLE_SIDEBAR':
+        case Types.TOGGLE_SIDEBAR:
 
             if(window.innerWidth < 576 && action.classes.sidebar === 'sidebar'){
                 return {
@@ -36,4 +41,12 @@ export default function dashboard(state = INITIAL_STATE, action){
         default:
             return state;
     }
+}
+
+// Creators
+export const Creators = {
+    handlerSidebar: (classes) => ({
+        type: Types.TOGGLE_SIDEBAR,
+        classes
+    })
 }

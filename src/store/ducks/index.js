@@ -8,5 +8,5 @@ import user from './user';
 // Combine
 export default combineReducers({
     dashboard,
-    user
+    user 
 });

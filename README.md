@@ -1,5 +1,5 @@
 <div align="center">
-    <img src="https://github.com/hiukky/dashmin-reactjs/blob/master/logo.png" width="300x300" height="300" />
+    <img src="https://github.com/hiukky/dashmin-react/blob/master/logo.png" width="300x300" height="300" />
     <h1> ... DASHmin ... </h1>
 </div>
 
@@ -22,7 +22,7 @@ To run this project, you need to have <strong>Node.js</strong> installed on your
 
 ## Instalation
 ```
-git clone https://github.com/hiukky/dashmin-reactjs.git
+git clone https://github.com/hiukky/dashmin-react.git
 ```
 
 ### Install
@@ -47,11 +47,10 @@ npm run start
 <div>
 The entire Dashmin database was created from 0! <strong>Bootstrap</strong> is included in order to facilitate our life in the development of the main content, example (the use of the grids system).
 The icons are the property of <strong>Fontawesome</strong>! ; )
-<br>
 </div>
-
-* [Bootstrap](https://getbootstrap.com/)
-* [Fontawesome](https://fontawesome.com/)
+<br>
+<p>&#10004; <a href="https://getbootstrap.com/"> Bootstrap </a></p>
+<p>&#10004; <a href="https://fontawesome.com/"> Fontawesome </a></p>
 
 ## Preview
-<img src="https://github.com/hiukky/dashmin-reactjs/blob/master/dashmin.png" />
+<img src="https://github.com/hiukky/dashmin-react/blob/master/dashmin.png" />
