@@ -2,11 +2,13 @@
   "name": "dashmin-react",
   "version": "1.0.0",
   "description": "Dashboard minimalist",
+  "homepage": "https://hiukky.github.io/dashmin-react",
   "repository": "https://github.com/hiukky/dashmin-react",
   "author": "H i u k k y",
   "license": "MIT",
   "private": true,
   "dependencies": {
+    "gh-pages": "^2.0.1",
     "node-sass": "^4.12.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
@@ -19,7 +21,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
