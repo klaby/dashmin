@@ -9,8 +9,6 @@
   <br><br>
 </div>
 
-<p>&#10004; <a href="https://hiukky.github.io/dashmin-react/"> Demo </a></p>
-
 DASHmin is only a base for the development of your Administrative System! it still (still ;) .. does not have a range of components, but is well on the way to help you in development! By default Bootstrap is already included, if you know the basics of it,easily create your pages!
 
 If you want to create your admin using DASHmin, follow the installation tutorial below!
@@ -170,6 +168,8 @@ npm run start
 Ready!! if everything went well, just check your application in the browser http://127.0.0.1:3000/.
 
 ## &#10003; Preview
+<p>&#10004; <a href="https://hiukky.github.io/dashmin-react/"> Demo </a></p>
+
 <img src="https://github.com/hiukky/dashmin-react/blob/master/dashmin.png" />
 
 ## &#10003; Frameworks

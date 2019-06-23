@@ -1,5 +1,5 @@
 // Imports
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -61,6 +61,7 @@ const Btn = styled(Link)`
   justify-content: ${props => (props.view === 'min' ? 'center' : 'space-between')};
   align-items: center;
   transition: .2s;
+  background: ${props => (props.click === props.to ? `rgba(${245},${246},${250},${0.06})` : '')};
 
   :hover {
     background: rgba(245, 246, 250, 0.03);
@@ -97,34 +98,41 @@ const Footer = styled.div`
   }
 `;
 
-// Funcs
-const createButtons = (dashboard, buttons) => (
-  <ListButtons view={dashboard.sidebar}>
-    {buttons.map(btn => (
-      <Btn key={btn.id} view={dashboard.sidebar} to={btn.route}>
-        {dashboard.sidebar === 'min' ? '' : <span>{btn.name}</span>}
-        <i className={btn.icon} />
-      </Btn>
-    ))}
-  </ListButtons>
-);
-
 // Main
 const Main = ({ brand, buttons }) => {
-  const dashboard = useSelector(state => state.dashboard);
+  const { sidebar } = useSelector(state => state.dashboard);
+  const [click, setClick] = useState('');
+
+  const createButtons = () => (
+    <ListButtons view={sidebar}>
+      {buttons.map(btn => (
+        <Btn
+          key={btn.id}
+          view={sidebar}
+          to={btn.route}
+          onClick={() => setClick(btn.route)}
+          click={click}
+        >
+          {sidebar === 'min' ? '' : <span>{btn.name}</span>}
+          <i className={btn.icon} />
+        </Btn>
+      ))}
+    </ListButtons>
+  );
+
   return (
-    <Sidebar view={dashboard.sidebar}>
+    <Sidebar view={sidebar}>
       {/* Brand */}
       <Brand>
-        {dashboard.sidebar === 'min' ? <span>{brand.min}</span> : <span>{brand.max}</span>}
+        {sidebar === 'min' ? <span>{brand.min}</span> : <span>{brand.max}</span>}
       </Brand>
 
       {/* Buttons */}
-      {createButtons(dashboard, buttons)}
+      {createButtons(sidebar, buttons)}
 
       {/* Footer */}
       <Footer>
-        {dashboard.sidebar === 'min' ? <span>{brand.min}</span> : <span>{brand.max}</span>}
+        {sidebar === 'min' ? <span>{brand.min}</span> : <span>{brand.max}</span>}
       </Footer>
     </Sidebar>
   );

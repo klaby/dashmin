@@ -58,14 +58,14 @@ const Name = styled.span`
 
 const Function = styled.span`
   font-family: Arial, Helvetica, sans-serif;
-  font-size: .72rem;
+  font-size: .75rem;
   margin-top: 3px;
 `;
 const Online = styled.span`
   position: absolute;
   height: ${props => (props.view === 'min' ? `${8}px` : `${12}px`)};
   width: ${props => (props.view === 'min' ? `${8}px` : `${12}px`)};
-  bottom: ${props => (props.view === 'min' ? `${2}px` : `${5}px`)};
+  bottom: 1px;
   right: 2px;
   border-radius: 10px;
   background: green;
