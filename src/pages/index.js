@@ -1,16 +1,16 @@
 // Pages
-import Dashboard from './dashboard';
-import Users from './users';
-import Products from './products';
-import Financial from './financial';
-import Reports from './reports';
+import Home from './Home';
+import Users from './Users';
+import Financial from './Financial';
+import Products from './Products';
+import Reports from './Reports';
 
 const pages = ({
-    Dashboard,
-    Users,
-    Products,
-    Financial,
-    Reports
+  Home,
+  Users,
+  Financial,
+  Products,
+  Reports,
 });
 
 export default pages;

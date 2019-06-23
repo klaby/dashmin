@@ -1,5 +1,5 @@
 // Imports
-import {createStore} from 'redux';
+import { createStore } from 'redux';
 
 // Reducers
 import rootReducers from './ducks';

@@ -1,52 +1,42 @@
 // Types
 export const Types = {
-    TOGGLE_SIDEBAR: 'TOGGLE_SIDEBAR'
-}
+  TOGGLE_SIDEBAR: 'TOGGLE_SIDEBAR',
+};
 
 // Initial State
 const INITIAL_STATE = {
-    // classes
-    classes: {sidebar: 'sidebar', navbar: 'navbar', content: 'content'}
-}
+  sidebar: 'desktop',
+  navbar: 'desktop',
+  content: 'desktop',
+};
 
 // Reducer
-export default function dashboard(state = INITIAL_STATE, action){
-    switch(action.type) {
+export default function dashboard(state = INITIAL_STATE, action) {
+  switch (action.type) {
+    // TOGGLE_SIDEBAR
+    case Types.TOGGLE_SIDEBAR:
+      if (action.dashboard.sidebar === 'desktop' && window.innerWidth < 576) {
+        return ({
+          ...state,
+          sidebar: 'mobile',
+          navbar: 'mobile',
+        });
+      } if (action.dashboard.sidebar === 'desktop' && window.innerWidth > 576) {
+        return ({
+          ...state,
+          sidebar: 'min',
+          navbar: 'min',
+          content: 'min',
+        });
+      }
+      return ({
+        ...state,
+        sidebar: 'desktop',
+        navbar: 'desktop',
+        content: 'desktop',
+      });
 
-        // TOGGLE_SIDEBAR
-        case Types.TOGGLE_SIDEBAR:
-
-            if(window.innerWidth < 576 && action.classes.sidebar === 'sidebar'){
-                return {
-                    ...state,
-                    classes: {sidebar: 'sidebar--mobile', navbar: 'navbar', content: 'content'}
-                }
-            }
-    
-            else if (window.innerWidth > 576 && action.classes.sidebar === 'sidebar'){
-                return {
-                    ...state,
-                    classes: {sidebar: 'sidebar--min', navbar: 'navbar--min', content: 'content--min'}
-                }
-            }
-    
-            else {
-                return {
-                    ...state,
-                    classes: {sidebar: 'sidebar', navbar: 'navbar', content: 'content'}
-                }
-            }
-        
-        // Default
-        default:
-            return state;
-    }
-}
-
-// Creators
-export const Creators = {
-    handlerSidebar: (classes) => ({
-        type: Types.TOGGLE_SIDEBAR,
-        classes
-    })
+    default:
+      return state;
+  }
 }
