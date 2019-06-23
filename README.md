@@ -4,8 +4,12 @@
 </div>
 
 <div align="center">
+  <img src="https://travis-ci.org/hiukky/dashmin-react.svg?branch=master">
+</div>
+
+<div align="center">
   <sub>Built with ❤︎ by
-  <a href="https://github.com/hiukky">Hiukky</a>
+  <a href="https://github.com/hiukky">Romullo</a>
   <br><br>
 </div>
 
@@ -183,4 +187,4 @@ The icons are the property of <strong>Fontawesome</strong>! ; )
 
 ## &#10003; License
 
-MIT © [H i u k k y](https://github.com/hiukky)
+MIT © [Romullo](https://github.com/hiukky)
