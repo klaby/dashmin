@@ -9,15 +9,16 @@ import { Route, Switch } from 'react-router-dom';
 const Content = styled.div`
   position: relative;
   height: calc(100vh - 90px);
-  top: 90px;
+  top: 60px;
   width: 100%;
   background: rgba(241, 242, 246, .2);
   z-index: 99;
+  transition: .2s;
 
   @media only screen and (min-width: 576px) {
     width: ${props => (props.view === 'min' ? `calc(${100}% - ${50}px)` : `calc(${100}% - ${200}px)`)};
     left: ${props => (props.view === 'min' ? `${50}px` : `${200}px`)};
-    padding: 20px;
+    padding: 0 20px 20px 20px;
   }
 `;
 // Main
@@ -36,7 +37,6 @@ const Main = ({ routes }) => {
     </Content>
   );
 };
-
 // PropTypes
 Main.propTypes = {
   routes: PropTypes.arrayOf(PropTypes.object).isRequired,

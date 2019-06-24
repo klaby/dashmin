@@ -46,7 +46,7 @@ const Main = () => (
           {
             id: 3,
             name: 'Financial',
-            icon: 'fas fa-file-invoice-dollar',
+            icon: 'fas fa-coins',
             route: '/financial',
           },
           {

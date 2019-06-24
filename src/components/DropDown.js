@@ -68,7 +68,7 @@ const Online = styled.span`
   bottom: 1px;
   right: 2px;
   border-radius: 10px;
-  background: green;
+  background: #20bf6b;
 `;
 
 const Buttons = styled.div`
@@ -83,7 +83,7 @@ const Btn = styled.div`
   height: 45px;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 13px;
-  padding: 0 25px 0 25px;
+  padding: 0 5px 0 25px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -92,9 +92,8 @@ const Btn = styled.div`
 
   :hover {
     background: rgba(56, 56, 56, 0.1);
-    padding: 0 28px 0 26px;
-    transition: .1s;
-    transition: .1s;
+    padding: 0 8px 0 27px;
+    transition: .2s;
   }
 
   span {
@@ -106,13 +105,22 @@ const Btn = styled.div`
   }
 `;
 
+const Icon = styled.div`
+  position: relative;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
 // Funcs
 const createButtons = (dashboard, buttons) => (
   <Buttons>
     {buttons.map(btn => (
       <Btn key={btn.id} iconColor={btn.icon.color}>
         <span>{btn.name}</span>
-        <i className={btn.icon.type} color={btn.icon.color} />
+        <Icon><i className={btn.icon.type} color={btn.icon.color} /></Icon>
       </Btn>
     ))}
   </Buttons>
