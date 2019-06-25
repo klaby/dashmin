@@ -5,11 +5,14 @@ import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
 
+// Components
+import Breadcrumb from './Breadcrumb';
+
 // Styles
 const Content = styled.div`
   position: relative;
   height: calc(100vh - 90px);
-  top: 60px;
+  top: 50px;
   width: 100%;
   background: rgba(241, 242, 246, .2);
   z-index: 99;
@@ -18,15 +21,19 @@ const Content = styled.div`
   @media only screen and (min-width: 576px) {
     width: ${props => (props.view === 'min' ? `calc(${100}% - ${50}px)` : `calc(${100}% - ${200}px)`)};
     left: ${props => (props.view === 'min' ? `${50}px` : `${200}px`)};
-    padding: 0 20px 20px 20px;
+    padding: 20px;
   }
 `;
+
 // Main
 const Main = ({ routes }) => {
   const { dashboard } = useSelector(state => state);
 
   return (
     <Content view={dashboard.content}>
+      <Switch>
+        <Breadcrumb />
+      </Switch>
       <Switch>
         {routes.map(route => (
           route.route === '/'
@@ -37,6 +44,7 @@ const Main = ({ routes }) => {
     </Content>
   );
 };
+
 // PropTypes
 Main.propTypes = {
   routes: PropTypes.arrayOf(PropTypes.object).isRequired,
