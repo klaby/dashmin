@@ -15,7 +15,7 @@ const Navbar = styled.div`
   background: #f1f2f6;
   z-index: 101;
   box-shadow: -4px 5px 10px rgba(56, 56, 56, 0.2);
-  transition: .1s;
+  transition: all .1s ease 0s;
 
   @media only screen and (min-width: 576px) {
     width: ${props => (props.view === 'min' ? `calc(${100}% - ${50}px)` : `calc(${100}% - ${200}px)`)};

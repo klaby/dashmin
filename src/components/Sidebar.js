@@ -14,7 +14,7 @@ const Sidebar = styled.div`
   background: #313B4F;
   z-index: 100;
   box-shadow: 10px 2px 15px rgba(56, 56, 56, 0.2);
-  transition: .1s;
+  transition: all .1s ease 0s;
   overflow: hidden;
 
   @media only screen and (min-width: 576px) {
@@ -123,7 +123,7 @@ const Main = ({ brand, buttons }) => {
     <ListButtons view={sidebar}>
       {buttons.map(btn => (
         <Btn
-          key={btn.id}
+          key={Math.random()}
           view={sidebar}
           to={btn.route}
           onClick={() => setClick(btn.route)}

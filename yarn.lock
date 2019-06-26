@@ -8049,6 +8049,14 @@ react-is@^16.6.0, react-is@^16.7.0, react-is@^16.8.1, react-is@^16.8.4, react-is
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.8.6.tgz#5bbc1e2d29141c9fbdfed456343fe2bc430a6a16"
   integrity sha512-aUk3bHfZ2bRSVFFbbeVS4i+lNPZr3/WM5jT2J5omUVV1zzcs1nAaf3l51ctA5FFvCRbhrH0bdAsRRQddFJZPtA==
 
+react-minimal-breadcrumb@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/react-minimal-breadcrumb/-/react-minimal-breadcrumb-1.0.0.tgz#e48dd21fccc9ebc3bf03d3ca4fa227ecdc64f44f"
+  integrity sha512-UcELos0HBDcJlccgLIbrNyh/jNtw93u/te3vXmTgoxPOJ12i6AsJC+U8kqaE6Pzm5HtkSWBsFxOyIgno0tMcjQ==
+  dependencies:
+    prop-types "^15.7.2"
+    styled-components "^4.3.2"
+
 react-redux@^7.1.0:
   version "7.1.0"
   resolved "https://registry.yarnpkg.com/react-redux/-/react-redux-7.1.0.tgz#72af7cf490a74acdc516ea9c1dd80e25af9ea0b2"

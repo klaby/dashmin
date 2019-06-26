@@ -30,38 +30,7 @@ const Main = () => (
         }}
 
         // Buttons
-        buttons={[
-          {
-            id: 1,
-            name: 'Dashboard',
-            icon: 'fas fa-tachometer-alt',
-            route: '/',
-          },
-          {
-            id: 2,
-            name: 'Users',
-            icon: 'fas fa-users',
-            route: '/users',
-          },
-          {
-            id: 3,
-            name: 'Financial',
-            icon: 'fas fa-coins',
-            route: '/financial',
-          },
-          {
-            id: 4,
-            name: 'Products',
-            icon: 'fas fa-cart-plus',
-            route: '/products',
-          },
-          {
-            id: 5,
-            name: 'Reports',
-            icon: 'fas fa-chart-pie',
-            route: '/reports',
-          },
-        ]}
+        buttons={routes}
       />
 
       {/* Content */}

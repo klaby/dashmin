@@ -16,7 +16,7 @@ const Content = styled.div`
   width: 100%;
   background: rgba(241, 242, 246, .2);
   z-index: 99;
-  transition: .2s;
+  transition: all .2s ease 0s;
 
   @media only screen and (min-width: 576px) {
     width: ${props => (props.view === 'min' ? `calc(${100}% - ${50}px)` : `calc(${100}% - ${200}px)`)};
@@ -32,13 +32,13 @@ const Main = ({ routes }) => {
   return (
     <Content view={dashboard.content}>
       <Switch>
-        <Breadcrumb />
+        <Breadcrumb routes={routes} />
       </Switch>
       <Switch>
         {routes.map(route => (
           route.route === '/'
-            ? <Route key={route} exact path={route.route} component={route.page} />
-            : <Route key={route} path={route.route} component={route.page} />
+            ? <Route key={route.route} exact path={route.route} component={route.page} />
+            : <Route key={route.route} path={route.route} component={route.page} />
         ))}
       </Switch>
     </Content>
