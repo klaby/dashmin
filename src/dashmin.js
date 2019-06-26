@@ -18,23 +18,19 @@ import Content from './components/Content';
 const Main = () => (
   <Provider store={store}>
     <BrowserRouter>
+
       {/* Navbar */}
       <Navbar />
 
       {/* Sidebar */}
       <Sidebar
-        // Brand
-        brand={{
-          max: 'D A S H M I N',
-          min: 'dmin',
-        }}
-
-        // Buttons
+        brand={{ max: 'D A S H M I N', min: 'dmin' }}
         buttons={routes}
       />
 
       {/* Content */}
       <Content routes={routes} />
+
     </BrowserRouter>
   </Provider>
 );
