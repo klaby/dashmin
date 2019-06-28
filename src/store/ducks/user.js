@@ -2,7 +2,7 @@
 const INITIAL_STATE = {
   // data
   user: {
-    avatar: require('../../assets/profile.jpg'),
+    avatar: 'https://i.imgur.com/NpICPSl.jpg',
     name: 'R o m u l l o',
     function: 'Administrator',
   },

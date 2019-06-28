@@ -1,6 +1,6 @@
 // Imports
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './app';
+import Dashmin from './dashmin';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+export {
+  Dashmin,
+};
