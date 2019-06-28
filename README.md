@@ -23,32 +23,29 @@ To run this project, you need to have <strong>Node.js</strong> installed on your
 
 
 ## &#10003; Instalation
+
+To get started, create your application using the `create-react-app`.
 ```
-git clone https://github.com/hiukky/dashmin-react.git
+create-react-app example
 ```
 
 ### Install
+
+After creating the application using `create-react-app` enter the project folder, open the terminal and install the` dashmin`.
+
 ```
-yarn install
+yarn add dashmin
 ```
 #### or
 ```
-npm install
+npm i dashmin
 ```
 
 ## &#10003; Structure
 ```bash
 ├── node_modules
-├── public
-│   ├── favicon.ico
-│   ├── index.html
-│   ├── manifest.json
 ├── src
-│   ├── app
-│   ├── assets
 │   ├── components
-│   ├── pages
-│   ├── routes
 │   ├── store
 │   ├── dashmin.js
 │   ├── index.js
@@ -66,96 +63,83 @@ npm install
 
 Dashmin is just a basic interface to help you in creating your admin dashboard. After you download and install the dependencies, you can start your application.
 
+To begin, delete all files inside `src /`, leaving only `index.js` and` app.js`. after doing so create two new `pages` and` routes` folders.
 
-### Configuring the Sidebar
-
-To get started, you may be going to the `src/dashmin.js` file and dropping basic information in the sidebar as` Brand` and `Buttons`.
-
-#### Brand
-
-```js
-  <Sidebar
-    // Brand
-    brand={{
-      max: 'D A S H M I N',
-      min: 'dmin',
-    }}
-  />
+```bash
+├── node_modules
+├── src
+│   ├── views
+│   ├── routes
+│   ├── app.js
+│   ├── index.js
+├── package.json
 ```
-
-#### Buttons
-
-To define your buttons in the sidebar, you need to use the `buttons` property and pass an array of objects with their buttons, informing an id for the` Id` button, the name `name`, icone` icon` and the route to which it should reference `route`.
-
-```js
-  <Sidebar
-    // Buttons
-    buttons={[
-      {
-        id: 1,
-        name: 'Dashboard',
-        icon: 'fas fa-tachometer-alt',
-        route: '/',
-      },
-    ]}
-  />
-```
-
-### Creating the Pages
-
-To create your pages simply go to the `src/pages` directory and create your pages.
 
 #### pages/example.js
+
+Within the `pages` directory create your view component to be rendered.
 
 ```js
 // Imports
 import React from 'react';
 
-// Example
+// Products
 const Example = () => (
   <div>
-    <Title>Example</Title>
+    <h1>Example</h1>
   </div>
 );
+
 export default Example;
 ```
 
-And then immediately import them into the index file in `pages/index.js`.
-
-#### pages/index.js
-
-```js
-// Pages
-import Example from './example';
-
-const pages = ({
-  Example,
-});
-
-export default pages;
-```
-
-### Creating the Routes
-
-Finally, define the routes of the application in `routes/index.js`.
-
 #### routes/index.js
 
-```js
+Shortly after creating your view component create a route file by passing the following properties.
 
+```js
 // Pages
-import pages from '../pages';
+import Example from '../pages/example';
 
 // Routes
 const Routes = [
   {
     route: '/',
-    page: pages.Example,
+    name: 'Home',
+    icon: 'fas fa-tachometer-alt',
+    page: Example,
   },
-];
+]
 
 export default Routes;
 ```
+
+The sidebar will be created automatically via the routes so set `icon` and` name` to the button.
+
+
+#### app.js
+
+Now to finish .. after you have done all the steps above, just import `Dashmin` and `routes` and use it!
+
+```js
+// Imports
+import React from 'react';
+import Dashmin from 'dashmin'
+
+// Routes
+import routes from './routes';
+
+const App = () => (
+  <Dashmin
+    brand={{ max: 'D A S H M I N', min: 'dmin' }}
+    routes={routes}
+  />
+);
+
+export default App;
+```
+
+For more exexmplos you can check https://github.com/hiukky/dashmin-react/tree/demo.
 
 ### Finishing
 
@@ -176,7 +160,7 @@ Ready!! if everything went well, just check your application in the browser http
 
 <img src="https://github.com/hiukky/dashmin-react/blob/master/dashmin.png" />
 
-## &#10003; Frameworks
+## &#10003; Libraries
 <div>
 The entire Dashmin database was created from 0! <strong>Bootstrap</strong> is included in order to facilitate our life in the development of the main content, example (the use of the grids system).
 The icons are the property of <strong>Fontawesome</strong>! ; )
