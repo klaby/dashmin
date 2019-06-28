@@ -4,6 +4,14 @@ import styled from 'styled-components';
 import { useSelector, useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 
+// Icons
+import { 
+  IoMdMenu,
+  IoMdSettings,
+  IoMdPerson,
+  IoMdExit
+} from 'react-icons/io';
+
 // Components
 import DropDown from './DropDown';
 
@@ -35,10 +43,8 @@ const Btn = styled.div`
   justify-content: center;
   align-items: center;
   transition: .3s;
-
-  i {
-    color: rgba(56, 56, 56, 0.7);
-  }
+  font-size: 1.3rem;
+  color: rgba(56, 56, 56, 0.7);
 
   :hover {
     background: rgba(47, 53, 66, .1);
@@ -50,7 +56,7 @@ const Btn = styled.div`
 // Fragments
 const Button = ({ icon, event }) => (
   <Btn onClick={event}>
-    <i className={icon} />
+    {icon}
   </Btn>
 );
 
@@ -70,18 +76,32 @@ const Main = () => {
     <Navbar view={dashboard.navbar}>
       {/* Left */}
       <Buttons>
-        <Button icon="fas fa-bars" event={handleSidebar} />
+        <Button icon={<IoMdMenu />} event={handleSidebar} />
       </Buttons>
 
       {/* Right */}
-      <DropDown user={user} />
+      <DropDown 
+        user={user}
+        buttons={[
+          {
+            name: 'Settings',
+            icon: <IoMdSettings />
+          },
+          {
+            name: 'Profile',
+            icon: <IoMdPerson />,
+          },
+          {
+            name: 'Logout',
+            icon: <IoMdExit />
+          },
+        ]} />
     </Navbar>
   );
 };
 
 // PropTypes
 Button.propTypes = {
-  icon: PropTypes.string.isRequired,
   event: PropTypes.func.isRequired,
 };
 

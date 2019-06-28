@@ -50,15 +50,3 @@ table {
 a {
   text-decoration: none !important;
 }
-
-/* F O N T A W E S O M E
-//////////////////////////////////////*/
-@import url('https://use.fontawesome.com/releases/v5.8.2/css/all.css');
-
-/* F O N T S
-//////////////////////////////////////*/
-@import url('https://fonts.googleapis.com/css?family=Quicksand|Roboto');
-
-/* B O O T S T R A P
-//////////////////////////////////////*/
-@import url('https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css');

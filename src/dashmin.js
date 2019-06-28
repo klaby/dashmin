@@ -20,16 +20,21 @@ const Main = ({ routes, brand }) => (
   <Provider store={store}>
     <BrowserRouter>
       <Navbar />
-      <Sidebar brand={brand} buttons={routes} />
-      <Content routes={routes} />
+      <Sidebar routes={routes.main} brand={brand} />
+      <Content routes={routes.main} />
     </BrowserRouter>
   </Provider>
 );
 
 // PropTypes
 Main.propTypes = {
-  routes: PropTypes.arrayOf(PropTypes.object).isRequired,
-  brand: PropTypes.objectOf(PropTypes.object).isRequired,
+  brand: PropTypes.shape({
+    min: PropTypes.string,
+    max: PropTypes.string,
+  }).isRequired,
+  routes: PropTypes.shape({
+    main: PropTypes.arrayOf(PropTypes.object)
+  }).isRequired
 };
 
 export default Main;

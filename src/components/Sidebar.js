@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
 
 // Styles
 const Sidebar = styled.div`
@@ -59,7 +58,7 @@ const ListButtons = styled.div`
 const Btn = styled(Link)`
   position: relative;
   height: 50px;
-  width: ${props => (props.view === 'min' ? `${50}px` : `${200}px`)};
+  width: ${props => (props.view === 'min' ? `${50}px` : `${180}px`)};
   font-family: Arial, Helvetica, sans-serif;
   font-size: 13px;
   padding-left: ${props => (props.view === 'min' ? `${0}px` : `${20}px`)};
@@ -81,16 +80,13 @@ const Btn = styled(Link)`
   span {
     font-weight: bold;
   }
-
-  @media only screen and (min-width: 576px) {
-    font-size: ${props => (props.view === 'min' ? `${15}px` : `${13}px`)};
-  }
 `;
 
 const Icon = styled.div`
   position: relative;
   width: 50px;
   height: 50px;
+  font-size: ${props => (props.size ? props.size : `${1}rem`)};
   display: flex;
   justify-content: center;
   align-items: center;
@@ -104,7 +100,6 @@ const Footer = styled.div`
   color: rgba(241, 242, 246, .8);
   display: flex;
   justify-content: center;
-  align-items: center;
 
   span {
     font-family: Arial, Helvetica, sans-serif;
@@ -115,13 +110,13 @@ const Footer = styled.div`
 `;
 
 // Main
-const Main = ({ brand, buttons }) => {
+const Main = ({ brand, routes }) => {
   const { sidebar } = useSelector(state => state.dashboard);
   const [click, setClick] = useState('');
 
   const createButtons = () => (
     <ListButtons view={sidebar}>
-      {buttons.map(btn => (
+      {routes.map(btn => (
         <Btn
           key={Math.random()}
           view={sidebar}
@@ -129,8 +124,12 @@ const Main = ({ brand, buttons }) => {
           onClick={() => setClick(btn.route)}
           click={click}
         >
-          {sidebar === 'min' ? '' : <span>{btn.name}</span>}
-          <Icon><i className={btn.icon} /></Icon>
+          {sidebar === 'min' ? '' : <span>{btn.button.name}</span>}
+          {
+            btn.button.icon.class
+            ? <Icon size={btn.button.icon.size}><i className={btn.button.icon.class} /></Icon>
+            : <Icon size={btn.button.icon.size}>{btn.button.icon.component}</Icon>
+          }
         </Btn>
       ))}
     </ListButtons>
@@ -144,7 +143,7 @@ const Main = ({ brand, buttons }) => {
       </Brand>
 
       {/* Buttons */}
-      {createButtons(sidebar, buttons)}
+      {createButtons(sidebar, routes)}
 
       {/* Footer */}
       <Footer view={sidebar}>
@@ -152,15 +151,6 @@ const Main = ({ brand, buttons }) => {
       </Footer>
     </Sidebar>
   );
-};
-
-// PropTypes
-Main.propTypes = {
-  brand: PropTypes.shape({
-    min: PropTypes.string,
-    max: PropTypes.string,
-  }).isRequired,
-  buttons: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default Main;

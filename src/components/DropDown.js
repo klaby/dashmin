@@ -118,16 +118,16 @@ const Icon = styled.div`
 const createButtons = (dashboard, buttons) => (
   <Buttons>
     {buttons.map(btn => (
-      <Btn key={btn.id} iconColor={btn.icon.color}>
+      <Btn key={Math.random()} iconColor={btn.icon.color}>
         <span>{btn.name}</span>
-        <Icon><i className={btn.icon.type} color={btn.icon.color} /></Icon>
+        <Icon>{btn.icon}</Icon>
       </Btn>
     ))}
   </Buttons>
 );
 
 // Main
-const Main = () => {
+const Main = ({ buttons }) => {
   const { user, dashboard } = useSelector(state => state);
   const node = useRef();
   const [open, setOpen] = useState(false);
@@ -169,30 +169,7 @@ const Main = () => {
       </Profile>
 
       {/* Buttons */}
-      {createButtons(dashboard, [
-        {
-          id: 1,
-          name: 'Settings',
-          icon: {
-            type: 'fas fa-cog',
-          },
-        },
-        {
-          id: 2,
-          name: 'Profile',
-          icon: {
-            type: 'fas fa-user-alt',
-          },
-        },
-        {
-          id: 3,
-          name: 'Logout',
-          icon: {
-            type: 'fas fa-sign-out-alt',
-            color: '#e66767',
-          },
-        },
-      ])}
+      {createButtons(dashboard, buttons)}
     </DropDown>
   );
 };

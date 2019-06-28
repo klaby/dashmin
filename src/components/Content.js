@@ -11,9 +11,9 @@ import Breadcrumb from 'react-minimal-breadcrumb';
 // Styles
 const Content = styled.div`
   position: relative;
-  height: calc(100vh - 50px);
+  height: calc(100vh - 80px);
   top: 50px;
-  width: 100%;
+  width: 100% + 20px;
   background: rgba(241, 242, 246, .2);
   z-index: 99;
   transition: all .2s ease 0s;
@@ -21,7 +21,7 @@ const Content = styled.div`
   padding: 5px 10px 10px 10px;
 
   @media only screen and (min-width: 576px) {
-    width: ${props => (props.view === 'min' ? `calc(${100}% - ${50}px)` : `calc(${100}% - ${200}px)`)};
+    width: ${props => (props.view === 'min' ? `calc(${100}% - ${90}px)` : `calc(${100}% - ${240}px)`)};
     left: ${props => (props.view === 'min' ? `${50}px` : `${200}px`)};
     padding: 10px 20px 20px 20px;
   }
