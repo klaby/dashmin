@@ -5,6 +5,8 @@
 
 <div align="center">
   <img src="https://travis-ci.org/hiukky/dashmin-react.svg?branch=master">
+  <img src="https://img.shields.io/github/issues/hiukky/dashmin-react.svg">
+  <img src="https://img.shields.io/github/license/hiukky/dashmin-react.svg">
 </div>
 
 <div align="center">
