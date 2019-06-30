@@ -1,7 +1,9 @@
 // Imports
 import React, { useEffect, useState, useRef } from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import PropTypes from 'prop-types';
 
 // Styles
 const DropDown = styled.div`
@@ -16,13 +18,10 @@ const DropDown = styled.div`
 `;
 
 const DropDownMin = styled(DropDown)`
-  height: 50px;
-  width: 50px;
-  height: 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  right: 10px;
+  height: 35px;
+  width: 35px;
+  right: 15px;
+  top: 7.5px;
   box-shadow: none;
 `;
 
@@ -56,7 +55,7 @@ const Name = styled.span`
   margin-top: 5px;
 `;
 
-const Function = styled.span`
+const JobRole = styled.span`
   font-family: Arial, Helvetica, sans-serif;
   font-size: .75rem;
   margin-top: 3px;
@@ -78,9 +77,10 @@ const Buttons = styled.div`
   padding-top: 10px;
 `;
 
-const Btn = styled.div`
+const Btn = styled(Link)`
   position: relative;
   height: 45px;
+  color: #656565;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 13px;
   padding: 0 5px 0 25px;
@@ -92,16 +92,12 @@ const Btn = styled.div`
 
   :hover {
     background: rgba(56, 56, 56, 0.1);
-    padding: 0 8px 0 27px;
+    color: #656565;
     transition: .2s;
   }
 
   span {
     font-weight: bold;
-  }
-
-  i {
-    color: ${props => (props.iconColor ? props.iconColor : `#${656565}`)}!important;
   }
 `;
 
@@ -112,44 +108,49 @@ const Icon = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 15px;
 `;
 
-// Funcs
-const createButtons = (dashboard, buttons) => (
-  <Buttons>
-    {buttons.map(btn => (
-      <Btn key={Math.random()} iconColor={btn.icon.color}>
-        <span>{btn.name}</span>
-        <Icon>{btn.icon}</Icon>
-      </Btn>
-    ))}
-  </Buttons>
-);
-
 // Main
-const Main = ({ buttons }) => {
-  const { user, dashboard } = useSelector(state => state);
+const Main = ({ user, buttons }) => {
+  // Consts
+  const dashboard = useSelector(state => state);
   const node = useRef();
   const [open, setOpen] = useState(false);
 
+  // HandleClick
   const handleClick = (e) => {
     if (node.current.contains(e.target)) return;
     setOpen(false);
   };
 
+  // useEffect
   useEffect(() => {
     document.addEventListener('mousedown', handleClick);
 
     return () => {
       document.removeEventListener('mousedown', handleClick);
     };
-  }, []);
+  });
 
+  // Create Buttons
+  const createButtons = () => (
+    <Buttons>
+      {buttons.map(btn => (
+        <Btn key={Math.random()} to={btn.route}>
+          <span>{btn.name}</span>
+          <Icon>{btn.icon}</Icon>
+        </Btn>
+      ))}
+    </Buttons>
+  );
+
+  // Render
   if (!open) {
     return (
       <DropDownMin ref={node}>
         <Avatar view="min" onClick={() => setOpen(!open)}>
-          <img src={user.user.avatar} alt="" />
+          <img src={user.avatar ? user.avatar : dashboard.user.avatar} alt="Profile user" />
           <Online view="min" />
         </Avatar>
       </DropDownMin>
@@ -161,17 +162,22 @@ const Main = ({ buttons }) => {
       {/* Profile */}
       <Profile>
         <Avatar onClick={() => setOpen(!open)}>
-          <img src={user.user.avatar} alt="" />
+          <img src={user.avatar ? user.avatar : dashboard.user.avatar} alt="Profile user" />
           <Online />
         </Avatar>
-        <Name>{user.user.name}</Name>
-        <Function>{user.user.function}</Function>
+        <Name>{user.name ? user.name : dashboard.user.name }</Name>
+        <JobRole>{user.jobRole ? user.jobRole : dashboard.user.jobRole}</JobRole>
       </Profile>
 
       {/* Buttons */}
       {createButtons(dashboard, buttons)}
     </DropDown>
   );
+};
+
+// PropTypes
+Main.propTypes = {
+  buttons: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default Main;

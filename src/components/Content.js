@@ -6,22 +6,23 @@ import { useSelector } from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
 
 // Components
-import Breadcrumb from 'react-minimal-breadcrumb';
+import Breadcrumb from './Breadcrumb';
 
 // Styles
 const Content = styled.div`
   position: relative;
-  height: calc(100vh - 80px);
+  height: calc(100vh - 50px);
   top: 50px;
   width: 100% + 20px;
   background: rgba(241, 242, 246, .2);
   z-index: 99;
-  transition: all .2s ease 0s;
+  transition: all .3s ease 0s;
   overflow: auto;
   padding: 5px 10px 10px 10px;
+  background: rgba(238, 238, 238, 0.3);
 
   @media only screen and (min-width: 576px) {
-    width: ${props => (props.view === 'min' ? `calc(${100}% - ${90}px)` : `calc(${100}% - ${240}px)`)};
+    width: ${props => (props.view === 'min' ? `calc(${100}% - ${50}px)` : `calc(${100}% - ${200}px)`)};
     left: ${props => (props.view === 'min' ? `${50}px` : `${200}px`)};
     padding: 10px 20px 20px 20px;
   }
@@ -29,10 +30,10 @@ const Content = styled.div`
 
 // Main
 const Main = ({ routes }) => {
-  const { dashboard } = useSelector(state => state);
+  const { content } = useSelector(state => state);
 
   return (
-    <Content view={dashboard.content}>
+    <Content view={content}>
       <Switch>
         <Breadcrumb routes={routes} />
       </Switch>

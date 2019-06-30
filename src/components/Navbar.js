@@ -5,11 +5,11 @@ import { useSelector, useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 
 // Icons
-import { 
+import {
   IoMdMenu,
   IoMdSettings,
   IoMdPerson,
-  IoMdExit
+  IoMdPower,
 } from 'react-icons/io';
 
 // Components
@@ -23,7 +23,7 @@ const Navbar = styled.div`
   background: #f1f2f6;
   z-index: 101;
   box-shadow: -4px 5px 10px rgba(56, 56, 56, 0.2);
-  transition: all .1s ease 0s;
+  transition: all .2s ease 0s;
 
   @media only screen and (min-width: 576px) {
     width: ${props => (props.view === 'min' ? `calc(${100}% - ${50}px)` : `calc(${100}% - ${200}px)`)};
@@ -55,16 +55,15 @@ const Btn = styled.div`
 
 // Fragments
 const Button = ({ icon, event }) => (
-  <Btn onClick={event}>
-    {icon}
-  </Btn>
+  <Btn onClick={event}>{icon}</Btn>
 );
 
 // Main
-const Main = () => {
-  const { dashboard, user } = useSelector(state => state);
+const Main = ({ user }) => {
+  const dashboard = useSelector(state => state);
   const dispatch = useDispatch();
 
+  // Handle sidebar
   const handleSidebar = () => (
     dispatch({
       type: 'TOGGLE_SIDEBAR',
@@ -72,6 +71,7 @@ const Main = () => {
     })
   );
 
+  // Render
   return (
     <Navbar view={dashboard.navbar}>
       {/* Left */}
@@ -80,22 +80,27 @@ const Main = () => {
       </Buttons>
 
       {/* Right */}
-      <DropDown 
+      <DropDown
         user={user}
         buttons={[
           {
             name: 'Settings',
-            icon: <IoMdSettings />
+            icon: <IoMdSettings />,
+            route: '/settings',
           },
           {
             name: 'Profile',
             icon: <IoMdPerson />,
+            route: '/profile',
           },
           {
             name: 'Logout',
-            icon: <IoMdExit />
+            icon: <IoMdPower />,
+            route: '/logout',
+            color: '#656565',
           },
-        ]} />
+        ]}
+      />
     </Navbar>
   );
 };
@@ -103,6 +108,11 @@ const Main = () => {
 // PropTypes
 Button.propTypes = {
   event: PropTypes.func.isRequired,
+  icon: PropTypes.objectOf(PropTypes.object).isRequired,
+};
+
+Main.propTypes = {
+  user: PropTypes.objectOf(PropTypes.string).isRequired,
 };
 
 export default Main;
