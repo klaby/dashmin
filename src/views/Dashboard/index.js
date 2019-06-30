@@ -10,10 +10,10 @@ const Title = styled.h1`
 `;
 
 // Products
-const Users = () => (
+const Dashboard = () => (
   <div>
-    <Title>Users</Title>
+    <Title>Dashboard</Title>
   </div>
 );
 
-export default Users;
+export default Dashboard;

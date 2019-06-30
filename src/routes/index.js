@@ -1,42 +1,113 @@
-// Pages
-import Dashboard from '../pages/Dashboard';
-import Users from '../pages/Users';
-import Financial from '../pages/Financial';
-import Products from '../pages/Products';
-import Reports from '../pages/Reports';
+// React
+import React from 'react';
+
+// Views
+import Dashboard from '../views/Dashboard';
+import Users from '../views/Users';
+import Financial from '../views/Financial';
+import Products from '../views/Products';
+import Reports from '../views/Reports';
+
+// Icons
+import {
+  IoMdOptions,
+  IoMdPeople,
+  IoMdCard,
+  IoMdCart,
+  IoMdAnalytics
+} from 'react-icons/io'
 
 // Routes
-const Routes = [
-  {
-    route: '/',
-    name: 'Dashboard',
-    icon: 'fas fa-tachometer-alt',
-    page: Dashboard,
-  },
-  {
-    route: '/users',
-    name: 'Users',
-    icon: 'fas fa-users',
-    page: Users,
-  },
-  {
-    route: '/financial',
-    name: 'Financial',
-    icon: 'fas fa-coins',
-    page: Financial,
-  },
-  {
-    route: '/products',
-    name: 'Products',
-    icon: 'fas fa-cart-plus',
-    page: Products,
-  },
-  {
-    route: '/reports',
-    name: 'Reports',
-    icon: 'fas fa-chart-pie',
-    page: Reports,
-  },
-];
+const Routes = {
+  dashboard: '/',
+  users: '/users',
+  financial: '/financial',
+  products: '/products',
+  reports: '/reports',
+};
 
-export default Routes;
+// Dashmin
+const Dashmin = {
+  // Navbar
+  navbar: {
+    user: {
+      avatar: 'https://imgur.com/NpICPSl.jpg',
+      name: 'R o m u l l o',
+      jobRole: 'Administrator',
+    },
+  },
+
+  // Sidebar
+  sidebar: {
+    // Brand
+    brand: {
+      max: 'D A S H M I N',
+      min: 'dmin' 
+    },
+
+    // Buttons
+    buttons: [
+      {
+        name: 'Dashboard',
+        icon: {
+          component: <IoMdOptions />,
+        },
+        route: Routes.dashboard,
+      },
+      {
+        name: 'Users',
+        icon: {
+          component: <IoMdPeople />,
+        },
+        route: Routes.users,
+      },
+      {
+        name: 'Financial',
+        icon: {
+          component: <IoMdCard />,
+        },
+        route: Routes.financial,
+      },
+      {
+        name: 'Products',
+        icon: {
+          component: <IoMdCart />,
+        },
+        route: Routes.products,
+      },
+      {
+        name: 'Reports',
+        icon: {
+          component: <IoMdAnalytics />,
+        },
+        route: Routes.reports,
+      }
+    ]
+  },
+
+  // Content
+  content: [
+    {
+      route: Routes.dashboard,
+      page: Dashboard
+    },
+    {
+      route: Routes.users,
+      page: Users
+    },
+    {
+      route: Routes.financial,
+      page: Financial
+    },
+    {
+      route: Routes.products,
+      page: Products
+    },
+    {
+      route: Routes.reports,
+      page: Reports
+    },
+  ]
+};
+
+export default Dashmin;
