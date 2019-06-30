@@ -8,6 +8,11 @@ const INITIAL_STATE = {
   sidebar: 'desktop',
   navbar: 'desktop',
   content: 'desktop',
+  user: {
+    avatar: 'https://i.imgur.com/NpICPSl.jpg',
+    name: 'R o m u l l o',
+    jobRole: 'Administrator',
+  },
 };
 
 // Reducer

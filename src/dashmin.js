@@ -1,11 +1,14 @@
 // Imports
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
+import PropTypes from 'prop-types';
+
+// Bootstrap
+import 'bootstrap/dist/css/bootstrap.css';
 
 // Reset CSS
-import './reset.css';
+import 'reset-css/reset.css';
 
 // Store
 import store from './store';
@@ -16,20 +19,26 @@ import Navbar from './components/Navbar';
 import Content from './components/Content';
 
 // Main
-const Main = ({ routes, brand }) => (
+const Main = ({ navbar, sidebar, content }) => (
   <Provider store={store}>
     <BrowserRouter>
-      <Navbar />
-      <Sidebar brand={brand} buttons={routes} />
-      <Content routes={routes} />
+      <Navbar user={navbar.user} />
+      <Sidebar brand={sidebar.brand} buttons={sidebar.buttons} />
+      <Content routes={content} />
     </BrowserRouter>
   </Provider>
 );
 
 // PropTypes
 Main.propTypes = {
-  routes: PropTypes.arrayOf(PropTypes.object).isRequired,
-  brand: PropTypes.objectOf(PropTypes.object).isRequired,
+  navbar: PropTypes.shape({
+    user: PropTypes.objectOf(PropTypes.string),
+  }).isRequired,
+  sidebar: PropTypes.shape({
+    brand: PropTypes.object,
+    buttons: PropTypes.arrayOf(PropTypes.object),
+  }).isRequired,
+  content: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default Main;

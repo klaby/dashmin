@@ -1,7 +1,7 @@
 {
   "name": "dashmin",
-  "version": "1.2.1",
-  "description": "Minimal Dashboard in ReactJs + Redux + Styled Components",
+  "version": "1.2.5",
+  "description": "Minimal Dashboard in ReactJs + Redux + Styled Components + React icons and Bootstrap",
   "main": "build/index.js",
   "module": "build/index.js",
   "homepage": "https://hiukky.github.io/dashmin-react",
@@ -19,12 +19,14 @@
     "react-redux": "^7.1.0",
     "react-router-dom": "^5.0.1",
     "redux": "^4.0.1",
+    "reset-css": "^4.0.1",
     "styled-components": "^4.3.2",
-    "webpack": "^4.12.0"
+    "webpack": "^4.12.0",
+    "bootstrap": "^4.3.1",
+    "react-icons": "^3.7.0"
   },
   "scripts": {
     "lint": "eslint --ext .js,.jsx .",
-    "start": "node scripts/start.js",
     "dev": "webpack --mode development",
     "build": "webpack --mode production",
     "test": "react-scripts test --passWithNoTests",

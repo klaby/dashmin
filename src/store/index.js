@@ -2,9 +2,9 @@
 import { createStore } from 'redux';
 
 // Reducers
-import rootReducers from './ducks';
+import dashboard from './dashboard';
 
 // Store
-const store = createStore(rootReducers);
+const store = createStore(dashboard);
 
 export default store;

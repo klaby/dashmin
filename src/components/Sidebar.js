@@ -1,26 +1,28 @@
 // Imports
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
 
 // Styles
 const Sidebar = styled.div`
   position: fixed;
   height: calc(100vh - 50px);
-  width: ${props => (props.view === 'mobile' ? `${200}px` : `${0}px`)};
+  width: 200px;
+  left: ${props => (props.view === 'mobile' ? `${0}px` : `${-220}px`)};
   top: 50px;
-  background: #313B4F;
+  background: #313C4F;
   z-index: 100;
   box-shadow: 10px 2px 15px rgba(56, 56, 56, 0.2);
-  transition: all .1s ease 0s;
+  transition: all .2s ease 0s;
   overflow: hidden;
 
   @media only screen and (min-width: 576px) {
     width: ${props => (props.view === 'min' ? `${50}px` : `${200}px`)};
     height: 100vh;
     top: 0;
+    left: 0;
   }
 `;
 
@@ -31,8 +33,8 @@ const Brand = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-
-  span {
+  
+  h1 {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1.1rem;
     color: rgba(241, 242, 246, .8);
@@ -40,17 +42,16 @@ const Brand = styled.div`
   }
 `;
 
-const ListButtons = styled.div`
+const Buttons = styled.div`
   position: relative;
   height: calc(100vh - 130px);
   background: rgba(245, 246, 250, 0.04);
   padding-top: 10px;
-  overflow-y: auto;
+  overflow: hidden;
 
   ::-webkit-scrollbar {
     width: 0;
   };
-
   @media only screen and (min-width: 576px) {
     height: calc(100vh - 80px);
   }
@@ -58,7 +59,7 @@ const ListButtons = styled.div`
 
 const Btn = styled(Link)`
   position: relative;
-  height: 50px;
+  height: 45px;
   width: ${props => (props.view === 'min' ? `${50}px` : `${200}px`)};
   font-family: Arial, Helvetica, sans-serif;
   font-size: 13px;
@@ -69,21 +70,14 @@ const Btn = styled(Link)`
   transition: .2s;
   background: ${props => (props.click === props.to ? `rgba(${245},${246},${250},${0.06})` : '')};
   color: rgba(241, 242, 246, .8);
+  outline: none;
 
   :hover {
     background: rgba(245, 246, 250, 0.03);
     color: rgba(241, 242, 246, .8);
-    padding: ${props => (props.view === 'min' ? `${0}px ${0}px ${0}px ${7}px` : `${0}px ${5}px ${0}px ${22}px`)};
     transition: .2s;
     cursor: pointer !important;
-  }
-
-  span {
-    font-weight: bold;
-  }
-
-  @media only screen and (min-width: 576px) {
-    font-size: ${props => (props.view === 'min' ? `${15}px` : `${13}px`)};
+    text-decoration: none;
   }
 `;
 
@@ -91,6 +85,17 @@ const Icon = styled.div`
   position: relative;
   width: 50px;
   height: 50px;
+  font-size: ${props => (props.size ? props.size : `${1}rem`)};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const Text = styled.span`
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  color: rgba(241, 242, 246, .8);
+  font-weight: bold;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -103,8 +108,8 @@ const Footer = styled.div`
   background: rgba(245, 246, 250, 0.04);
   color: rgba(241, 242, 246, .8);
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 
   span {
     font-family: Arial, Helvetica, sans-serif;
@@ -116,11 +121,11 @@ const Footer = styled.div`
 
 // Main
 const Main = ({ brand, buttons }) => {
-  const { sidebar } = useSelector(state => state.dashboard);
+  const { sidebar } = useSelector(state => state);
   const [click, setClick] = useState('');
 
   const createButtons = () => (
-    <ListButtons view={sidebar}>
+    <Buttons view={sidebar}>
       {buttons.map(btn => (
         <Btn
           key={Math.random()}
@@ -129,18 +134,18 @@ const Main = ({ brand, buttons }) => {
           onClick={() => setClick(btn.route)}
           click={click}
         >
-          {sidebar === 'min' ? '' : <span>{btn.name}</span>}
-          <Icon><i className={btn.icon} /></Icon>
+          <Text>{sidebar === 'min' ? '' : btn.name}</Text>
+          <Icon>{btn.icon.component}</Icon>
         </Btn>
       ))}
-    </ListButtons>
+    </Buttons>
   );
 
   return (
     <Sidebar view={sidebar}>
       {/* Brand */}
       <Brand view={sidebar}>
-        <span>{sidebar === 'min' ? brand.min : brand.max}</span>
+        <h1>{sidebar === 'min' ? brand.min : brand.max}</h1>
       </Brand>
 
       {/* Buttons */}
