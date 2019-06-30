@@ -19,6 +19,25 @@ DASHmin is only a base for the development of your Administrative System! it sti
 
 If you want to create your admin using DASHmin, follow the installation tutorial below!
 
+## &#10003; Structure
+```bash
+├── node_modules
+├── src
+│   ├── components
+│   ├── store
+│   ├── dashmin.js
+│   ├── index.js
+├── .editorconfig
+├── .eslintrc.json
+├── .gitignore
+├── .travis.yml
+├── package.json
+├── README.md
+├── LICENCE.md
+├── logo.png
+└── dashmin.png
+```
+
 ## &#10003; Requirements
 
 To run this project, you need to have <strong>Node.js</strong> installed on your machine! If you do not have it, go to the website https://nodejs.org/en/ and download and install it as it is taught in the documentation!
@@ -43,29 +62,11 @@ yarn add dashmin
 npm i dashmin
 ```
 
-## &#10003; Structure
-```bash
-├── node_modules
-├── src
-│   ├── components
-│   ├── store
-│   ├── dashmin.js
-│   ├── index.js
-├── .editorconfig
-├── .eslintrc.json
-├── .gitignore
-├── .travis.yml
-├── package.json
-├── README.md
-├── LICENCE.md
-├── logo.png
-└── dashmin.png
-```
 ## &#10003; How to use
 
 Dashmin is just a basic interface to help you in creating your admin dashboard. After you download and install the dependencies, you can start your application.
 
-To begin, delete all files inside `src /`, leaving only `index.js` and` app.js`. after doing so create two new `pages` and` routes` folders.
+To begin, delete all files inside `src/`, leaving only `index.js` and` app.js`. after doing so create two new `views` and` routes` folders.
 
 ```bash
 ├── node_modules
@@ -77,64 +78,256 @@ To begin, delete all files inside `src /`, leaving only `index.js` and` app.js`.
 ├── package.json
 ```
 
-#### pages/example.js
+#### views / example.js
 
-Within the `pages` directory create your view component to be rendered.
+Within the `views` directory create your view component to be rendered.
 
 ```js
 // Imports
 import React from 'react';
 
 // Products
-const Example = () => (
+const Example01 = () => (
   <div>
-    <h1>Example</h1>
+    <h1>Example01</h1>
   </div>
 );
 
-export default Example;
+export default Example01;
 ```
-
-#### routes/index.js
-
-Shortly after creating your view component create a route file by passing the following properties.
-
-```js
-// Pages
-import Example from '../pages/example';
-
-// Routes
-const Routes = [
-  {
-    route: '/',
-    name: 'Home',
-    icon: 'fas fa-tachometer-alt',
-    page: Example,
-  },
-]
-
-export default Routes;
-```
-
-The sidebar will be created automatically via the routes so set `icon` and` name` to the button.
-
-
-#### app.js
-
-Now to finish .. after you have done all the steps above, just import `Dashmin` and `routes` and use it!
 
 ```js
 // Imports
 import React from 'react';
-import Dashmin from 'dashmin'
+
+// Products
+const Example02 = () => (
+  <div>
+    <h1>Example02</h1>
+  </div>
+);
+
+export default Example02;
+```
+
+#### routes / index.js
+
+Shortly after creating your view component create a route file by passing the following properties.
+
+```js
+// Routes
+const Routes = {
+  example01: '/example01',
+  example02: '/example02',
+};
+
+```
+
+After defining the routes, define a const `Dashmin` by passing defining properties. Dashmin requires information for `navbar`,` sidebar` and `content`. so it is important to inform them.
+
+```js
+const Dashmin = {
+  // navbar
+  navbar: {
+
+  }
+
+  // sidebar
+  sidebar: {
+
+  }
+
+  // Content
+  content: [
+
+  ]
+}
+
+```
+
+#### navbar: { }
+
+in navbar you need to pass a `user` object, passing` avatar`, `name` and` jobRole`. these will be the information displayed in the dropdown.
+
+```js
+const Dashmin = {
+  // navbar
+  navbar: {
+    user: {
+      avatar: 'https://imgur.com/NpICPSl.jpg',
+      name: 'R o m u l l o',
+      jobRole: 'Administrator',
+    },
+  },
+}
+
+```
+
+#### sidebar: { }
+
+For the `sidebar` you need to pass` brand` and `buttons`. For `brand` you need to pass only the name of your organization by entering the full name` max` and abbreviated `min`.
+For `buttons`, a` name`, `icon` and` route` are required.
+
+Sobre os icones .. o Dashmin usa o `React icons`, então você pode simplesmente importar os icones que deseja usar e passar o component para icon.
+
+```js
+// Icons
+import {
+  IoMdOptions,
+  IoMdPeople,
+} from 'react-icons/io'
+
+const Dashmin = {
+  // sidebar
+  sidebar: {
+    // brand
+    brand: {
+      max: 'D A S H M I N',
+      min: 'dmin'
+    },
+
+    // buttons
+    buttons: [
+      {
+        name: 'Example01',
+        icon: {
+          component: <IoMdOptions />,
+        },
+        route: Routes.example01,
+      },
+      {
+        name: 'Example02',
+        icon: {
+          component: <IoMdOptions />,
+        },
+        route: Routes.example02,
+      },
+    ]
+  }
+}
+
+```
+
+#### content: [ ]
+
+Finally the part of content. For it will be necessary to pass an array of objects containing the `route` and the visualization component to be redemptively` view`.
+
+```js
+// Views
+import Example01 from '../pages/example01';
+import Example02 from '../pages/example02';
+
+const Dashmin = {
+  // content
+  content: [
+    {
+      route: Routes.example01,
+      view: Example01
+    },
+    {
+      route: Routes.example02,
+      view: Example02
+    },
+  ]
+}
+
+```
+
+### Full configuration
+
+The Route file containing the settings made above.
+
+#### routes / index.js
+
+```js
+// React
+import React from 'react';
+
+// Views
+import Example01 from '../views/example01';
+import Example02 from '../views/example02';
+
+// Icons
+import {
+  IoMdOptions,
+  IoMdPeople,
+} from 'react-icons/io'
 
 // Routes
+const Routes = {
+  example01: '/example01',
+  example02: '/example02',
+};
+
+// Dashmin
+const Dashmin = {
+  // Navbar
+  navbar: {
+    user: {
+      avatar: 'https://imgur.com/NpICPSl.jpg',
+      name: 'R o m u l l o',
+      jobRole: 'Administrator',
+    },
+  },
+
+  // Sidebar
+  sidebar: {
+    // brand
+    brand: {
+      max: 'D A S H M I N',
+      min: 'dmin'
+    },
+
+    // buttons
+    buttons: [
+      {
+        name: 'Example01',
+        icon: {
+          component: <IoMdOptions />,
+        },
+        route: Routes.example01,
+      },
+      {
+        name: 'Example02',
+        icon: {
+          component: <IoMdPeople />,
+        },
+        route: Routes.example02,
+      },
+    ]
+  },
+
+  // Content
+  content: [
+    {
+      route: Routes.example01,
+      view: Example01
+    },
+    {
+      route: Routes.example02,
+      view: Example02
+    },
+  ]
+};
+
+export default Dashmin;
+```
+
+#### app.js
+
+Finally, in your `app.js` import` dashmin` and pass the following properties.
+
+```js
+// Imports
+import React from 'react';
+import { Dashmin } from 'dashmin';
 import routes from './routes';
 
 const App = () => (
   <Dashmin
-    brand={{ max: 'D A S H M I N', min: 'dmin' }}
-    routes={routes}
+    navbar={routes.navbar}
+    sidebar={routes.sidebar}
+    content={routes.content}
   />
 );
 
@@ -163,14 +356,8 @@ Ready!! if everything went well, just check your application in the browser http
 <img src="https://github.com/hiukky/dashmin-react/blob/master/dashmin.png" />
 
 ## &#10003; Libraries
-<div>
-The entire Dashmin database was created from 0! <strong>Bootstrap</strong> is included in order to facilitate our life in the development of the main content, example (the use of the grids system).
-The icons are the property of <strong>Fontawesome</strong>! ; )
-</div>
-<br>
+
+Some frontend libs included.
+
 <p>&#10004; <a href="https://getbootstrap.com/"> Bootstrap </a></p>
-<p>&#10004; <a href="https://fontawesome.com/"> Fontawesome </a></p>
-
-## &#10003; License
-
-MIT © [Romullo](https://github.com/hiukky)
+<p>&#10004; <a href="https://react-icons.netlify.com/#/"> React Icons </a></p>
