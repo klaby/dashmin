@@ -351,17 +351,20 @@ npm run start
 Ready!! if everything went well, just check your application in the browser http://127.0.0.1:3000/.
 
 ## &#10003; Preview
-<p>&#10004; <a href="https://hiukky.github.io/dashmin-react/"> Demo </a></p>
+<p>&#10004; <a href="https://hiukky.github.io/dashmin-react/"> <strong> Live demo </strong> </a></p>
 
-### &#10003; Login
+#### Login
 <img src="https://github.com/hiukky/dashmin-react/blob/master/login.png" />
 
-### &#10003; Admin
+#### Admin
 <img src="https://github.com/hiukky/dashmin-react/blob/master/dashmin.png" />
 
 ## &#10003; Libraries
 
 Some frontend libs included.
 
-<p>&#10004; <a href="https://getbootstrap.com/"> Bootstrap </a></p>
+<p>&#10004; <a href="https://material-ui.com/"> Material UI </a></p>
+<p>&#10004; <a href="https://getbootstrap.com/"> Reactstrap </a></p>
 <p>&#10004; <a href="https://react-icons.netlify.com/#/"> React Icons </a></p>
+<p>&#10004; <a href="https://redux.js.org/"> Redux </a></p>
+<p>&#10004; <a href="https://material-ui.com/"> Styled Components </a></p>
