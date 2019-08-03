@@ -84,19 +84,19 @@ export default function Main({ dropdown }) {
         buttons={[
           {
             name: 'Settings',
-            icon: <IoMdSettings />,
+            icon: <IoMdSettings size={18} />,
             route: '/settings',
             event: dropdown.buttons.settings
           },
           {
             name: 'Profile',
-            icon: <IoMdPerson />,
+            icon: <IoMdPerson size={18} />,
             route: '/profile',
             event: dropdown.buttons.profile
           },
           {
             name: 'Logout',
-            icon: <IoMdPower />,
+            icon: <IoMdPower size={18} />,
             route: '/logout',
             event: dropdown.buttons.logout
           },

@@ -81,6 +81,7 @@ const Btn = styled(Link)`
   height: 45px;
   color: #606c88;
   font-family: 'Muli', sans-serif;
+  font-weight: bold;
   font-size: 13px;
   padding: 0 5px 0 25px;
   display: flex;

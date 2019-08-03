@@ -99,6 +99,7 @@ const Icon = styled.div`
 const Text = styled.span`
   font-family: 'Muli', sans-serif;
   font-size: 13px;
+  font-weight: bold;
   color: #fff;
   display: flex;
   justify-content: center;

@@ -15,26 +15,33 @@
   <br><br>
 </div>
 
-DASHmin is only a base for the development of your Administrative System! it still (still ;) .. does not have a range of components, but is well on the way to help you in development! By default Bootstrap is already included, if you know the basics of it,easily create your pages!
+Hello dev .. this is Dashmin! It is nothing more than a simple and elegant base to help you in the development of your administrative system. It doesn't have many components yet, but it already has some famous libraries like Material UI and Reactstrap integrated, so if you know any of them it will be easy to create your pages .. if you don't want to use any of them, feel free to use the library. to your liking.
+So let's start.
 
 If you want to create your admin using DASHmin, follow the installation tutorial below!
 
 ## &#10003; Structure
 ```bash
 ├── node_modules
+├── public
 ├── src
 │   ├── components
+│   ├── helpers
+│   ├── routes
+│   ├── services
 │   ├── store
-│   ├── dashmin.js
+│   ├── views
+│   ├── App.js
 │   ├── index.js
 ├── .editorconfig
-├── .eslintrc.json
+├── .env
 ├── .gitignore
 ├── .travis.yml
 ├── package.json
 ├── README.md
-├── LICENCE.md
+├── LICENSE.md
 ├── logo.png
+├── login.png
 └── dashmin.png
 ```
 
@@ -45,40 +52,42 @@ To run this project, you need to have <strong>Node.js</strong> installed on your
 
 ## &#10003; Instalation
 
-To get started, create your application using the `create-react-app`.
-```
-create-react-app example
-```
-
-### Install
-
-After creating the application using `create-react-app` enter the project folder, open the terminal and install the` dashmin`.
+To start clone the repository and install the dependencies using the commands below.
 
 ```
-yarn add dashmin
+git clone https://github.com/hiukky/dashmin-react.git -b master nameOfYourProject
+```
+
+```
+cd nameOfYourProject
+```
+
+```
+yarn install
 ```
 #### or
 ```
-npm i dashmin
+npm install
 ```
 
 ## &#10003; How to use
 
-Dashmin is just a basic interface to help you in creating your admin dashboard. After you download and install the dependencies, you can start your application.
+Right .. after installing all the dependencies you can run the application and check if everything is working correctly.
 
-To begin, delete all files inside `src/`, leaving only `index.js` and` app.js`. after doing so create two new `views` and` routes` folders.
-
-```bash
-├── node_modules
-├── src
-│   ├── views
-│   ├── routes
-│   ├── app.js
-│   ├── index.js
-├── package.json
+```
+yarn run start
+```
+#### or
+```
+npm run start
 ```
 
-#### views / example.js
+Ready!! if everything went well, just check your application in the browser http://127.0.0.1:3000/.
+
+## &#10003; Creating your views
+Dashmin is already all set up, so for starters you can create your views in `src/views/YourView` and then use it in the routes file in` routes`.
+
+#### views / Example01.js
 
 Within the `views` directory create your view component to be rendered.
 
@@ -96,6 +105,7 @@ const Example01 = () => (
 export default Example01;
 ```
 
+#### views / Example02.js
 ```js
 // Imports
 import React from 'react';
@@ -110,17 +120,24 @@ const Example02 = () => (
 export default Example02;
 ```
 
+## &#10003; Configuring Routes and Dashmin
 #### routes / index.js
 
-Shortly after creating your view component create a route file by passing the following properties.
+After creating your view, go to `routes/index.js` and import the created views.
 
+```js
+// Views
+import Example01 from 'pages/example01';
+import Example02 from 'pages/example02';
+```
+
+Define your routes.
 ```js
 // Routes
 const Routes = {
   example01: '/example01',
   example02: '/example02',
 };
-
 ```
 
 After defining the routes, define a const `Dashmin` by passing defining properties. Dashmin requires information for `navbar`,` sidebar` and `content`. so it is important to inform them.
@@ -142,22 +159,38 @@ const Dashmin = {
 
   ]
 }
-
 ```
 
 #### navbar: { }
 
-in navbar you need to pass a `user` object, passing` avatar`, `name` and` jobRole`. these will be the information displayed in the dropdown.
+In `navbar``you need to enter a dropdown object containing the` user` and `buttons` objects.
 
 ```js
+// Serices
+import { logout }  from 'services/auth';
+
 const Dashmin = {
   // navbar
   navbar: {
-    user: {
-      avatar: 'https://imgur.com/NpICPSl.jpg',
-      name: 'R o m u l l o',
-      jobRole: 'Administrator',
-    },
+    // Dropdown
+    dropdown: {
+      // User Profile
+      user: {
+        avatar: 'https://i.imgur.com/NpICPSl.jpg',
+        name: 'R o m u l l o',
+        jobRole: 'Administrator',
+      },
+
+      // Buttons events
+      buttons: {
+        settings: () => {},
+        profile: () => {},
+        logout: () => {
+          logout();
+          document.location.reload();          
+        }
+      }
+    }
   },
 }
 
@@ -190,16 +223,12 @@ const Dashmin = {
     buttons: [
       {
         name: 'Example01',
-        icon: {
-          component: <IoMdOptions />,
-        },
+        icon: <IoMdOptions />,
         route: Routes.example01,
       },
       {
         name: 'Example02',
-        icon: {
-          component: <IoMdOptions />,
-        },
+        icon: <IoMdOptions />
         route: Routes.example02,
       },
     ]
@@ -214,8 +243,8 @@ Finally the part of content. For it will be necessary to pass an array of object
 
 ```js
 // Views
-import Example01 from '../pages/example01';
-import Example02 from '../pages/example02';
+import Example01 from 'pages/example01';
+import Example02 from 'pages/example02';
 
 const Dashmin = {
   // content
@@ -244,8 +273,8 @@ The Route file containing the settings made above.
 import React from 'react';
 
 // Views
-import Example01 from '../views/example01';
-import Example02 from '../views/example02';
+import Example01 from 'views/example01';
+import Example02 from 'views/example02';
 
 // Icons
 import {
@@ -263,11 +292,25 @@ const Routes = {
 const Dashmin = {
   // Navbar
   navbar: {
-    user: {
-      avatar: 'https://imgur.com/NpICPSl.jpg',
-      name: 'R o m u l l o',
-      jobRole: 'Administrator',
-    },
+    // Dropdown
+    dropdown: {
+      // User Profile
+      user: {
+        avatar: 'https://i.imgur.com/NpICPSl.jpg',
+        name: 'R o m u l l o',
+        jobRole: 'Administrator',
+      },
+
+      // Buttons events
+      buttons: {
+        settings: () => {},
+        profile: () => {},
+        logout: () => {
+          logout();
+          document.location.reload();          
+        }
+      }
+    }
   },
 
   // Sidebar
@@ -282,16 +325,12 @@ const Dashmin = {
     buttons: [
       {
         name: 'Example01',
-        icon: {
-          component: <IoMdOptions />,
-        },
+        icon: <IoMdOptions />,
         route: Routes.example01,
       },
       {
         name: 'Example02',
-        icon: {
-          component: <IoMdPeople />,
-        },
+        icon: <IoMdOptions />
         route: Routes.example02,
       },
     ]
@@ -313,32 +352,9 @@ const Dashmin = {
 export default Dashmin;
 ```
 
-#### app.js
-
-Finally, in your `app.js` import` dashmin` and pass the following properties.
-
-```js
-// Imports
-import React from 'react';
-import { Dashmin } from 'dashmin';
-import routes from './routes';
-
-const App = () => (
-  <Dashmin
-    navbar={routes.navbar}
-    sidebar={routes.sidebar}
-    content={routes.content}
-  />
-);
-
-export default App;
-```
-
-For more exexmplos you can check https://github.com/hiukky/dashmin-react/tree/demo.
-
 ### Finishing
 
-After you have followed the steps above, you can now test your application using one of the commands below.
+Once you have followed the steps above, you can now test your app using one of the commands below if you have not previously run it.
 
 ```
 yarn run start
@@ -351,7 +367,11 @@ npm run start
 Ready!! if everything went well, just check your application in the browser http://127.0.0.1:3000/.
 
 ## &#10003; Preview
-<p>&#10004; <a href="https://hiukky.github.io/dashmin-react/"> <strong> Live demo </strong> </a></p>
+
+<strong> User: </strong> dashmin
+<strong> pass: </strong> 123
+
+<p><a href="https://hiukky.github.io/dashmin-react/"> <strong> Live demo </strong> </a></p>
 
 #### Login
 <img src="https://github.com/hiukky/dashmin-react/blob/master/login.png" />
@@ -361,10 +381,8 @@ Ready!! if everything went well, just check your application in the browser http
 
 ## &#10003; Libraries
 
-Some frontend libs included.
-
-<p>&#10004; <a href="https://material-ui.com/"> Material UI </a></p>
-<p>&#10004; <a href="https://getbootstrap.com/"> Reactstrap </a></p>
-<p>&#10004; <a href="https://react-icons.netlify.com/#/"> React Icons </a></p>
-<p>&#10004; <a href="https://redux.js.org/"> Redux </a></p>
-<p>&#10004; <a href="https://material-ui.com/"> Styled Components </a></p>
+<p>📍 <a href="https://material-ui.com/"> Material UI </a></p>
+<p>📍 <a href="https://getbootstrap.com/"> Reactstrap </a></p>
+<p>📍 <a href="https://react-icons.netlify.com/#/"> React Icons </a></p>
+<p>📍 <a href="https://redux.js.org/"> Redux </a></p>
+<p>📍 <a href="https://material-ui.com/"> Styled Components </a></p>
