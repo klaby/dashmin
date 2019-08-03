@@ -1,19 +1,18 @@
 // Imports
 import React, { useEffect, useState, useRef } from 'react';
-import styled from 'styled-components';
-import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import PropTypes from 'prop-types';
+import { useSelector }                        from 'react-redux';
+import styled                                 from 'styled-components';
+import { Link }                               from 'react-router-dom';
 
 // Styles
 const DropDown = styled.div`
   position: absolute;
   height: 270px;
   width: 190px;
-  background: #f1f2f6;
+  background: #fff;
   top: 0;
   right: 0;
-  color: #656565;
+  color: #606c88;
   box-shadow: -4px 5px 10px rgba(56, 56, 56, 0.2);
 `;
 
@@ -49,16 +48,16 @@ const Avatar = styled.div`
 `;
 
 const Name = styled.span`
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: .9rem;
+  font-family: 'Muli', sans-serif;
+  font-size: .92rem;
   font-weight: bold;
   margin-top: 5px;
 `;
 
 const JobRole = styled.span`
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: .75rem;
-  margin-top: 3px;
+  font-family: 'Muli', sans-serif;
+  font-size: .73rem;
+  margin-top: -4px;
 `;
 const Online = styled.span`
   position: absolute;
@@ -67,7 +66,7 @@ const Online = styled.span`
   bottom: 1px;
   right: 2px;
   border-radius: 10px;
-  background: #20bf6b;
+  background: linear-gradient(to right, #02aab0, #00cdac);
 `;
 
 const Buttons = styled.div`
@@ -80,8 +79,8 @@ const Buttons = styled.div`
 const Btn = styled(Link)`
   position: relative;
   height: 45px;
-  color: #656565;
-  font-family: Arial, Helvetica, sans-serif;
+  color: #606c88;
+  font-family: 'Muli', sans-serif;
   font-size: 13px;
   padding: 0 5px 0 25px;
   display: flex;
@@ -91,13 +90,10 @@ const Btn = styled(Link)`
   cursor: pointer;
 
   :hover {
-    background: rgba(56, 56, 56, 0.1);
-    color: #656565;
+    background: rgba(47, 53, 66, .05);
+    color: #606c88;
     transition: .2s;
-  }
-
-  span {
-    font-weight: bold;
+    text-decoration: none;
   }
 `;
 
@@ -112,7 +108,8 @@ const Icon = styled.div`
 `;
 
 // Main
-const Main = ({ user, buttons }) => {
+export default function Main ({ user, buttons }) {
+
   // Consts
   const dashboard = useSelector(state => state);
   const node = useRef();
@@ -133,16 +130,14 @@ const Main = ({ user, buttons }) => {
     };
   });
 
-  // Create Buttons
+  // Fragments
   const createButtons = () => (
-    <Buttons>
-      {buttons.map(btn => (
-        <Btn key={Math.random()} to={btn.route}>
-          <span>{btn.name}</span>
-          <Icon>{btn.icon}</Icon>
-        </Btn>
-      ))}
-    </Buttons>
+    buttons.map(btn => (
+      <Btn key={Math.random()} to={btn.route} onClick={btn.event}>
+        <span>{btn.name}</span>
+        <Icon>{btn.icon}</Icon>
+      </Btn>
+    ))
   );
 
   // Render
@@ -170,14 +165,9 @@ const Main = ({ user, buttons }) => {
       </Profile>
 
       {/* Buttons */}
-      {createButtons(dashboard, buttons)}
+      <Buttons>
+       {createButtons( buttons)}
+      </Buttons>
     </DropDown>
   );
 };
-
-// PropTypes
-Main.propTypes = {
-  buttons: PropTypes.arrayOf(PropTypes.object).isRequired,
-};
-
-export default Main;
