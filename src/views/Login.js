@@ -147,13 +147,13 @@ export default function Main() {
 
           <FormGroup>
               <Input
-                label="Usúario:"
+                label="User:"
                 type="text"
                 name="username"
                 margin="normal"
                 fullWidth={true}
                 variant="outlined"
-                placeholder="usúario"
+                placeholder="username"
                 onChange={e => setUser({ ...user, username: e.target.value })}
                 error={error.field === 'username' && !user.username ? true : false}
                 InputProps={{
@@ -167,7 +167,7 @@ export default function Main() {
             </FormGroup>
             <FormGroup>
               <Input
-                label="Senha:"
+                label="Password:"
                 type="password"
                 name="password"
                 placeholder="********"
