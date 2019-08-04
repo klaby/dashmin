@@ -8,17 +8,11 @@ const INITIAL_STATE = {
   sidebar: 'desktop',
   navbar: 'desktop',
   content: 'desktop',
-  user: {
-    avatar: 'https://i.imgur.com/NpICPSl.jpg',
-    name: 'R o m u l l o',
-    jobRole: 'Administrator',
-  },
 };
 
 // Reducer
 export default function dashboard(state = INITIAL_STATE, action) {
   switch (action.type) {
-    // TOGGLE_SIDEBAR
     case Types.TOGGLE_SIDEBAR:
       if (action.dashboard.sidebar === 'desktop' && window.innerWidth < 576) {
         return ({

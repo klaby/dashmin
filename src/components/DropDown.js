@@ -1,10 +1,11 @@
 // Imports
 import React, { useEffect, useState, useRef } from 'react';
-import { useSelector }                        from 'react-redux';
-import styled                                 from 'styled-components';
 import { Link }                               from 'react-router-dom';
+import styled                                 from 'styled-components';
 
-// Styles
+/**
+ * Styles
+ */
 const DropDown = styled.div`
   position: absolute;
   height: 270px;
@@ -105,16 +106,20 @@ const Icon = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 15px;
 `;
 
 // Main
 export default function Main ({ user, buttons }) {
 
-  // Consts
-  const dashboard = useSelector(state => state);
-  const node = useRef();
+  /**
+   * States
+   */
   const [open, setOpen] = useState(false);
+  const node            = useRef();
+
+  /**
+   * Functions
+   */
 
   // HandleClick
   const handleClick = (e) => {
@@ -141,12 +146,14 @@ export default function Main ({ user, buttons }) {
     ))
   );
 
-  // Render
+  /**
+   * Render
+   */
   if (!open) {
     return (
       <DropDownMin ref={node}>
         <Avatar view="min" onClick={() => setOpen(!open)}>
-          <img src={user.avatar ? user.avatar : dashboard.user.avatar} alt="Profile user" />
+          <img src={user.avatar} alt="Profile user" />
           <Online view="min" />
         </Avatar>
       </DropDownMin>
@@ -158,11 +165,11 @@ export default function Main ({ user, buttons }) {
       {/* Profile */}
       <Profile>
         <Avatar onClick={() => setOpen(!open)}>
-          <img src={user.avatar ? user.avatar : dashboard.user.avatar} alt="Profile user" />
+          <img src={user.avatar} alt="Profile user" />
           <Online />
         </Avatar>
-        <Name>{user.name ? user.name : dashboard.user.name }</Name>
-        <JobRole>{user.jobRole ? user.jobRole : dashboard.user.jobRole}</JobRole>
+        <Name>{user.name}</Name>
+        <JobRole>{user.jobRole}</JobRole>
       </Profile>
 
       {/* Buttons */}

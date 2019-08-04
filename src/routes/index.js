@@ -5,11 +5,11 @@ import React       from 'react';
 import { logout }  from 'services/auth';
 
 // Views
-import Dashboard   from '../views/Dashboard';
-import Clients       from '../views/Clients';
-import Financial   from '../views/Financial';
-import Products    from '../views/Products';
-import Reports     from '../views/Reports';
+import Dashboard   from 'views/Dashboard';
+import Clients     from 'views/Clients';
+import Financial   from 'views/Financial';
+import Products    from 'views/Products';
+import Reports     from 'views/Reports';
 
 // Icons
 import {
@@ -47,11 +47,20 @@ const Dashmin = {
 
       // Buttons events
       buttons: {
-        settings: () => {},
-        profile: () => {},
-        logout: () => {
-          logout();
-          document.location.reload();          
+        settings: {
+          name: 'Settings',
+          event: () => {}
+        },
+        profile: {
+          name: 'Profile',
+          event: () => {}
+        },
+        logout: {
+          name: 'Logout',
+          event: () => {
+            logout();
+            document.location.reload(); 
+          }
         }
       }
     }

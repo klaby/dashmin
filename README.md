@@ -85,7 +85,7 @@ npm run start
 Ready!! if everything went well, just check your application in the browser http://127.0.0.1:3000/.
 
 ## &#10003; Creating your views
-Dashmin is already all set up, so for starters you can create your views in `src/views/YourView` and then use it in the routes file in` routes`.
+Dashmin is already all set up, so for starters you can create your views in `src/views/YourView` and then use it in the routes file in `routes`.
 
 #### views / Example01.js
 
@@ -163,7 +163,7 @@ const Dashmin = {
 
 #### navbar: { }
 
-In `navbar``you need to enter a dropdown object containing the` user` and `buttons` objects.
+In `navbar` you need to enter a dropdown object containing the `user` and `buttons` objects.
 
 ```js
 // Serices
@@ -198,8 +198,8 @@ const Dashmin = {
 
 #### sidebar: { }
 
-For the `sidebar` you need to pass` brand` and `buttons`. For `brand` you need to pass only the name of your organization by entering the full name` max` and abbreviated `min`.
-For `buttons`, a` name`, `icon` and` route` are required.
+For the `sidebar` you need to pass` brand` and `buttons`. For `brand` you need to pass only the name of your organization by entering the full name `max` and abbreviated `min`.
+For `buttons`, a` name`, `icon` and `route` are required.
 
 Sobre os icones .. o Dashmin usa o `React icons`, então você pode simplesmente importar os icones que deseja usar e passar o component para icon.
 
@@ -239,7 +239,7 @@ const Dashmin = {
 
 #### content: [ ]
 
-Finally the part of content. For it will be necessary to pass an array of objects containing the `route` and the visualization component to be redemptively` view`.
+Finally the part of content. For it will be necessary to pass an array of objects containing the `route` and the visualization component to be redemptively `view`.
 
 ```js
 // Views
@@ -384,5 +384,6 @@ Ready!! if everything went well, just check your application in the browser http
 <p>📍 <a href="https://material-ui.com/"> Material UI </a></p>
 <p>📍 <a href="https://getbootstrap.com/"> Reactstrap </a></p>
 <p>📍 <a href="https://react-icons.netlify.com/#/"> React Icons </a></p>
+<p>📍 <a href="https://www.npmjs.com/package/react-router-dom"> React Router Dom </a></p>
 <p>📍 <a href="https://redux.js.org/"> Redux </a></p>
 <p>📍 <a href="https://material-ui.com/"> Styled Components </a></p>

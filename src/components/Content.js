@@ -4,7 +4,9 @@ import { useSelector }   from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
 import styled            from 'styled-components';
 
-// Styles
+/**
+ * Styles
+ */
 const Content = styled.div`
   position: relative;
   height: calc(100vh - 50px);
@@ -25,8 +27,14 @@ const Content = styled.div`
 // Main
 export default function Main({ routes }) {
   
-  const { content } = useSelector(state => state);
+  /**
+   * States
+   */
+  const { content } = useSelector(state => state.dashboard);
 
+  /**
+   * Render
+   */
   return (
     <Content view={content}>
       <Switch>

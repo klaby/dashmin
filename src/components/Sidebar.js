@@ -1,10 +1,12 @@
 // Imports
 import React, { useState } from 'react';
-import styled from 'styled-components';
-import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { useSelector }     from 'react-redux';
+import { Link }            from 'react-router-dom';
+import styled              from 'styled-components';
 
-// Styles
+/**
+ * Styles
+ */
 const Sidebar = styled.div`
   position: fixed;
   height: calc(100vh - 50px);
@@ -127,9 +129,15 @@ const Footer = styled.div`
 // Main
 export default function Main({ brand, buttons }) {
   
-  const { sidebar } = useSelector(state => state);
+  /**
+   * States
+   */
+  const { sidebar }       = useSelector(state => state.dashboard);
   const [click, setClick] = useState('');
 
+  /**
+   * Functions
+   */
   const createButtons = () => (
     <Buttons view={sidebar}>
       {buttons.map(btn => (
@@ -147,6 +155,9 @@ export default function Main({ brand, buttons }) {
     </Buttons>
   );
 
+  /**
+   * Render
+   */
   return (
     <Sidebar view={sidebar}>
       {/* Brand */}

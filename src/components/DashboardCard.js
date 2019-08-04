@@ -2,7 +2,9 @@
 import React  from 'react';
 import styled from 'styled-components';
 
-// Styles
+/**
+ * Styles
+ */
 const Wrapper = styled.div`
     display: grid;
     grid-template-columns: 1fr;
@@ -101,17 +103,19 @@ const CardDescription = styled.h3`
 
 // Main
 export default function Main({ cards }) {
+
+  /**
+   * Render
+   */
   return (
     <Wrapper>
       {
         cards.map((card, index) => (
           <Card key={index} backgroud={card.backgroud}>
-            <CardIcon>
-              {card.icon}
-            </CardIcon>
+            <CardIcon>{card.icon}</CardIcon>
 
             <CardBody>
-              <CardDescription> { card.description } </CardDescription>
+              <CardDescription>{card.description}</CardDescription>
               <CardResult>{ card.result }</CardResult>
             </CardBody>
           </Card>

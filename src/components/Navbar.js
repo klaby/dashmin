@@ -14,7 +14,9 @@ import {
 // Components
 import DropDown from './DropDown';
 
-// Styles
+/**
+ * Styles
+ */
 const Navbar = styled.div`
   position: fixed;
   height: 50px;
@@ -59,8 +61,16 @@ const Button = ({ icon, event }) => (
 // Main
 export default function Main({ dropdown }) {
 
-  const dashboard = useSelector(state => state);
-  const dispatch  = useDispatch();
+  /**
+   * States
+   */
+  const { user, buttons } = dropdown;
+  const dashboard         = useSelector(state => state.dashboard);
+  const dispatch          = useDispatch();
+
+  /**
+   * Functions
+   */
 
   // Handle sidebar
   const handleSidebar = () => (
@@ -70,7 +80,9 @@ export default function Main({ dropdown }) {
     })
   );
 
-  // Render
+  /**
+   * Render
+   */
   return (
     <Navbar view={dashboard.navbar}>
       {/* Left */}
@@ -80,25 +92,25 @@ export default function Main({ dropdown }) {
 
       {/* Right */}
       <DropDown
-        user={dropdown.user}
+        user={user}
         buttons={[
           {
-            name: 'Settings',
-            icon: <IoMdSettings size={18} />,
+            name: buttons.settings.name || 'Settings',
+            icon: <IoMdSettings size={17} />,
             route: '/settings',
-            event: dropdown.buttons.settings
+            event: buttons.settings.event
           },
           {
-            name: 'Profile',
-            icon: <IoMdPerson size={18} />,
+            name: buttons.profile.name || 'Profile',
+            icon: <IoMdPerson size={17} />,
             route: '/profile',
-            event: dropdown.buttons.profile
+            event: buttons.profile.event
           },
           {
-            name: 'Logout',
-            icon: <IoMdPower size={18} />,
+            name: buttons.logout.name || 'Logout',
+            icon: <IoMdPower size={17} color="#ee5253" />,
             route: '/logout',
-            event: dropdown.buttons.logout
+            event: buttons.logout.event
           },
         ]}
       />

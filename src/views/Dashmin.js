@@ -5,7 +5,7 @@ import React                        from 'react';
 import { Sidebar, Navbar, Content } from 'components';
 
 // Routes
-import dashmin                       from 'routes';
+import dashmin                      from 'routes';
 
 // Main
 export default function Main() {
