@@ -113,7 +113,7 @@ export default function Main({ cards }) {
         cards.map((card, index) => (
           <Card key={index} backgroud={card.backgroud}>
             <CardIcon>{card.icon}</CardIcon>
-
+            
             <CardBody>
               <CardDescription>{card.description}</CardDescription>
               <CardResult>{ card.result }</CardResult>

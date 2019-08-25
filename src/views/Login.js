@@ -1,6 +1,6 @@
 // Imports
 import React, { useState, useEffect } from 'react';
-import { Form, Alert, FormGroup, }    from 'reactstrap';
+import { Form, FormGroup, }           from 'reactstrap';
 import { Button, InputAdornment }     from '@material-ui/core';
 import { IoMdPerson, IoMdKey }        from 'react-icons/io';
 import { fieldValidator }             from 'helpers/fieldValidator';
@@ -9,6 +9,7 @@ import { makeStyles }                 from '@material-ui/core/styles';
 import { login }                      from 'services/auth';
 import styled                         from 'styled-components';
 import history                        from 'helpers/history';
+import { Alert }                      from 'components';
 
 // Styles
 const Wrapper = styled.div`
@@ -143,7 +144,7 @@ export default function Main() {
         <Form onSubmit={e => handleLogin(e)} noValidate autoComplete="off">
           <Brand> Dashmin </Brand>
 
-          <Alert isOpen={alert.status} color={alert.type} style={{ transition: 'all .5s', marginBottom: '0' }}>{alert.message}</Alert>
+          <Alert type={alert.type} status={alert.status} message={alert.message} />
 
           <FormGroup>
               <Input

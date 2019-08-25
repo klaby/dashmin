@@ -34,7 +34,7 @@ export default function Main() {
       description: 'Reports',
       result: '+ 72%',
     },
-  ]
+  ];
 
   /**
    * Main

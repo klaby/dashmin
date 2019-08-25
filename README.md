@@ -1,6 +1,6 @@
 <div align="center">
-    <img src="https://github.com/hiukky/dashmin-react/blob/master/logo.png" width="300x300" height="300" />
-    <h1> ... DASHmin ... </h1>
+    <img src="https://github.com/hiukky/dashmin-react/blob/master/assets/logo.png" width="300x300" height="300" />
+    <h1> ... d a s h m i n ... </h1>
 </div>
 
 <div align="center">
@@ -22,6 +22,10 @@ If you want to create your admin using DASHmin, follow the installation tutorial
 
 ## &#10003; Structure
 ```bash
+├── assets
+│   ├── logo.png
+│   ├── login.png
+│   ├── dashmin.png
 ├── node_modules
 ├── public
 ├── src
@@ -39,11 +43,22 @@ If you want to create your admin using DASHmin, follow the installation tutorial
 ├── .travis.yml
 ├── package.json
 ├── README.md
-├── LICENSE.md
-├── logo.png
-├── login.png
-└── dashmin.png
+└── LICENSE.md
 ```
+
+## &#10003; Preview
+
+<strong> User: </strong> dashmin
+<strong> pass: </strong> 123
+
+<p><a href="https://hiukky.github.io/dashmin-react/"> <strong> Live demo </strong> </a></p>
+
+#### Login
+<img src="https://github.com/hiukky/dashmin-react/blob/master/assets/login.png" />
+
+#### Admin
+<img src="https://github.com/hiukky/dashmin-react/blob/master/assets/dashmin.png" />
+
 
 ## &#10003; Requirements
 
@@ -208,7 +223,7 @@ Sobre os icones .. o Dashmin usa o `React icons`, então você pode simplesmente
 import {
   IoMdOptions,
   IoMdPeople,
-} from 'react-icons/io'
+} from 'react-icons/io';
 
 const Dashmin = {
   // sidebar
@@ -280,7 +295,7 @@ import Example02 from 'views/example02';
 import {
   IoMdOptions,
   IoMdPeople,
-} from 'react-icons/io'
+} from 'react-icons/io';
 
 // Routes
 const Routes = {
@@ -365,19 +380,6 @@ npm run start
 ```
 
 Ready!! if everything went well, just check your application in the browser http://127.0.0.1:3000/.
-
-## &#10003; Preview
-
-<strong> User: </strong> dashmin
-<strong> pass: </strong> 123
-
-<p><a href="https://hiukky.github.io/dashmin-react/"> <strong> Live demo </strong> </a></p>
-
-#### Login
-<img src="https://github.com/hiukky/dashmin-react/blob/master/login.png" />
-
-#### Admin
-<img src="https://github.com/hiukky/dashmin-react/blob/master/dashmin.png" />
 
 ## &#10003; Libraries
 
