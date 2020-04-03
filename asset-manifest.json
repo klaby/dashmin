@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.js": "/dashmin-react/static/js/main.dcecc7b7.chunk.js",
+    "runtime-main.js": "/dashmin-react/static/js/runtime-main.304b1439.js",
+    "static/css/2.30aae062.chunk.css": "/dashmin-react/static/css/2.30aae062.chunk.css",
+    "static/js/2.a017e89d.chunk.js": "/dashmin-react/static/js/2.a017e89d.chunk.js",
+    "index.html": "/dashmin-react/index.html",
+    "precache-manifest.5dee343bc6db72d26db055f160a6c05e.js": "/dashmin-react/precache-manifest.5dee343bc6db72d26db055f160a6c05e.js",
+    "service-worker.js": "/dashmin-react/service-worker.js",
+    "static/js/2.a017e89d.chunk.js.LICENSE.txt": "/dashmin-react/static/js/2.a017e89d.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.304b1439.js",
+    "static/css/2.30aae062.chunk.css",
+    "static/js/2.a017e89d.chunk.js",
+    "static/js/main.dcecc7b7.chunk.js"
+  ]
+}
